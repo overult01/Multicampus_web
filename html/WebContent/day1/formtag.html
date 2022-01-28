@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 폼 태그 관련 </title>
+</head>
+<body>
+
+<form action="b.html"> <!-- submit버튼과 연관. 버튼을 누르면 입력받은 내용을 지정한 action속성으로 보낸다. -->
+	아이디: <input type = text name = id><br>
+	비밀번호: <input type = "password" name = "pass word"><br>
+	관리자모드: <input type = hidden name = "admin" value='0'><br>  <!-- 입력받지 않아도 정해진 value값이 자동으로 입력된다. 웹에서 안보인다. -->
+
+<!-- 	radio: 1개만 선택할 수 있게 동그라미가 생긴다. -->
+	성별: <input type ="radio" name = "gender" value = "남자">남  
+	<input type ="radio" name = "gender" value = "여자">여   
+
+	<!-- 위에서 입력받은 내용들을 submit누르면 form태그의 action속성으로 보낸다. -->
+	<!-- http://localhost:8080/html/b.html?id=userid&pw=%E3%85%8A -->
+	<input type = submit value = "로그인"> <!-- 제출이라고 하지 않아도 디폴트로 버튼이름이 제출이 된다. -->
+
+<!-- checkbox: 중복된 값 선택 가능한 체크박스 -->
+	좋아하는 과목: 
+	<input type ="checkbox" name = subject value = "db">데이터베이스   
+	<input type ="checkbox" name = subject value = "algorithm">알고리즘   
+	<input type ="checkbox" name = subject value = "java">자바   
+
+
+</form>
+
+
+</body>
+</html>

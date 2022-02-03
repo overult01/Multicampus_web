@@ -2,47 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>테이블 실습</title>
+<title>Insert title here</title>
+
+<!-- 짝수번째 행 글씨색상을 오렌지 -->
+<style>
+tr:nth-child(2n) {color: purple;}
+</style>
+
 </head>
 <body>
-
-<!-- 정민: input을 테이블에 넣으면 이상해진다. -->
-
-
-<table border = "1">
-  <tr>
-    <th>html5 <a href = "images/html5.jpg"></a>를 이용한 상품등록 페이지 </th>
-  </tr>
-
-<form action="productinsert.jsp">
-    <tr><td><input type = text name = "code"> 상품코드 </td> <td>키보드입력</td></tr>
-    <tr><td><input type = text name = "name"> 상품명 </td> <td>키보드입력</td></tr>
-
-    <tr><td><td rowspan = "5"> <input type = radio name = "price"> 가격 </td></tr>
-    <tr><td>
-    <input type = radio name = "price"> 1000
-    <input type = radio name = "price"> 2000
-    <input type = radio name = "price"> 3000
-    <input type = radio name = "price"> 4000
-    </td></tr>
-    
-    <tr><td><input type = text name = "remain"> 재고수량 </td> <td>키보드입력</td>
-    
-<!--     중복선택  -->
-    <td rowspan = "4"> 분류 </td>
-    <tr><td>
-    <input type = checkbox name = "product" value = "furniture"> 가전 </td>
-    <tr><td><input type = checkbox name = "product" value = "cloth"> 의류 </td>
-    <tr><td><input type = checkbox name = "product" value = "food"> 식품 </td>
-    <tr><td><input type = checkbox name = "product" value = "life"> 의식주 </td>
-	
-	<td colspan = "2"> <input type = submit name = "상품등록버튼"> </td>	
-</form>  
-	  
-</table>
-
-
-
-
+	<form action="productinsert.jsp">
+		<table border=3>
+		<tr><td colspan=2>
+		html5 <img src="images/html5.jpg" width=50 height=50> 를 이용한 상품 등록 페이지입니다
+		</td></tr>
+		<tr><td>상품코드</td><td><input type=text name="code"> </td></tr>
+		<tr><td>상품명</td><td><input type=text name="name"></td></tr>
+		<tr><td>가격</td>
+		<td>
+		<input type=radio name="price" value=1000 > 1000
+		<input type=radio name="price" value=2000 > 2000
+		<input type=radio name="price" value=3000 > 3000
+		<input type=radio name="price" value=4000 > 4000
+		</td>
+		</tr>
+		<tr><td>재고수량</td><td><input type=number value=10  ></td></tr>
+		<tr><td>분류</td><td>
+		<input type=checkbox name="class" value=가전 > 가전
+		<input type=checkbox name="class" value=의류 > 의류
+		<input type=checkbox name="class" value=식품 > 식품
+		<input type=checkbox name="class" value=의식주 > 의식주		
+		</td></tr>
+		<tr><td colspan=2><input type=submit value="상품등록" ></td></tr>
+		</table>
+	</form>
 </body>
 </html>

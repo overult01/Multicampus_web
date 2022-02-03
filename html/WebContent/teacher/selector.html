@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- css selector 문법-->
+<style>
+/* h1 {color:red} */
+/* #special {color:red} */
+/* .target{color:red} */
+/* h1.target{color:red}
+h1#special {color:red} */
+
+/* h6 , a {color:red;} */
+
+/* h1 > a {color:red;} *//*자식태그-직접포함*/
+/* body a {color:red;} *//*후손태그-직간접포함*/
+/* * {color:red;} */
+
+/* a href값이 www.multicampus.com인 것*/
+/* a[href="www.multicampus.com"]{color:red} */
+
+/* a href값이 naver 포함하는  것*/
+/* a[href*=naver]  {color:red} */
+
+/* a href값이 kakao 시작하는 것*/
+/* a[href^=kakao]  {color:red} */
+/* a href값이 com 으로 종료되는 것*/
+/* a[href$=com]  {color:red} */
+
+/* h1 title 첫번째 포함하는 태그 */
+/* h1[title*=첫번째]{color:red} */
+
+/*h1 태그 중에서 class속성값이 target 아닌 것*/
+/* h1:not(.target) {color:red} */
+
+/*table 태그 홀수번째행 선택*/
+/*  tr:nth-child(2n+1) {color:red} */
+ /*table 태그 짝수번째행 선택*/
+/*  table tr:nth-child(2n) {color:green} */
+
+/* table > tr:nth-child(2n+1) {color:red} 주의하자.*/
+
+/* ul li:nth-child(1) {color:red} */
+li > a:nth-child(1) {color:red;}
+
+a:link {color:aqua;}
+a:visited {color:red; } 
+a:hover {color:green;}
+
+</style> 
+
+</head>
+<body>
+
+<h1 class="target" title="첫번째 제목을 나타내는 부분입니다">제목1</h1>
+<h3 class="target" >제목3</h3>
+<h6 class="target" >제목6</h6>
+
+<a href="www.multicampus.com">멀티캠퍼스 이동</a><br>
+<a href="kakao.co.kr">카카오 이동</a><br>
+<a href="www.naver.co.kr">네이버 이동</a><br>
+<a href="www.amazone.com">아마존 이동</a><br>
+
+<h1><a href="http://www.google.com">구글 이동</a></h1>
+<h1>구글 이동</h1>
+<h1 id="special">id special제목</h1>
+
+<table border=3>
+<tr><td>1행1열</td><td>1행2열</td><td>1행3열</td></tr>
+<tr><td>2행1열</td><td>2행2열</td><td>2행3열</td></tr>
+<tr><td>3행1열</td><td>3행2열</td><td>3행3열</td></tr>
+<tr><td>4행1열</td><td>4행2열</td><td>4행3열</td></tr>
+<tr><td>5행1열</td><td>5행2열</td><td>5행3열</td></tr>
+<tr><td>6행1열</td><td>6행2열</td><td>6행3열</td></tr>
+</table>
+
+<ul>
+<li><a href="#">1아이템</a></li>
+<li><a href="#">2아이템</a></li>
+<li><a href="#">3아이템</a></li>
+</ul>
+
+
+
+
+</body>
+</html>

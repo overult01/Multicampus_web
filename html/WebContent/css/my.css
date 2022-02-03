@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+	p { /*  p태그 전체에 한 번에 적용할 스타일 */ 
+	color:red; 
+	font-size: 20px; 
+	font-family: 궁서;
+	}
+	
+	h1 {
+	color : aqua;
+	}

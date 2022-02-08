@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변수의 타입들</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var br = '<br>';
+var a;
+document.write(typeof(a) + br); // undefined
+
+a = 100;
+document.write(typeof(a) + br); // number
+
+a = 3.14;
+document.write(typeof(a) + br); // number (정수, 실수 구분하지 않고)
+
+a = true;
+document.write(typeof(a) + br); // boolean
+
+a = "자바스크립트 문자열"; // 문자열 데이터는 '와 " 모두 가능하다. 
+document.write(typeof(a) + br); // string
+
+a = function() {x = 10;} // 함수를 정의해서 a로 쓰겠다.
+document.write(typeof(a) + br); // function -> 자바스크립트는 함수 타입도 있다. (객체지향언어 + 함수형언어)
+
+a = [100, 200, 300];
+document.write(typeof(a) + br); // object 
+
+var c = 100;
+var d = '"javascript"';
+
+// 100는 number이고  "javascript"는 string입니다
+document.write(c + "는 " + typeof(c) + "이고 " + d + "는 " + typeof(d) + "입니다" + br);
+
+/* 긴 문자열을 나눠서 출력 : \n */
+d = "자바스크립트는 함수형 언어이고\n 객체지향 언어입니다. \n지금은 변수를 배우는 중입니다.";
+console.log(d);
+
+// ecmascript 추가 
+d = `자바스크립트는 함수형 언어이고
+객체지향 언어입니다.
+지금은 변수를 배우는 중입니다.`;
+console.log(d);
+
+var i = 10, j = 20;
+document.write(i + "+" + j + "=" + (i+j) + br); // 10+20=30
+document.write(`${i} + ${j} = ${i+j}` + br); // 10 + 20 = 30
+
+var str = "100";
+document.write(str + 200 + br); // 100200
+
+var str1 = parseInt("100"); // 정수로 바꾸고 싶을 때 
+document.write(str1 + 200 + br); // 300
+
+var str2 = parseInt("3.14"); // parseInt를 실수에 쓰면 소수점이하가 버려진다. 
+document.write(str2 + 200 + br); // 203
+
+var str2 = parseFloat("3.14"); // 실수로 바꾸고 싶을 때 
+document.write(str2 + 200 + br); // 203.14
+
+
+</script>
+
+
+</body>
+</html>

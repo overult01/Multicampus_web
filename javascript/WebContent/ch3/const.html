@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>const</title>
+</head>
+<body>
+
+<script>
+// 요즘 트렌드: let, const 구분 사용 권장(var보다)
+var i = 100; // 유일하게 변수 hoisting 가능. (script를 선언하자마자 사용 가능.)
+let j = 200; // 변수 hoisting 불가. 값 수정 가능.
+const k = 300; // 변수 hoisting 불가. 값 수정 불가(상수). 자바의 final 처럼. 
+
+i = 1000;
+j = 2000;
+/* k = 3000; // 상수라서 불가. */
+
+document.write(i);
+
+var a, b, c; // undefined
+var a2 = 10, b2 = 30; // 타입결정 - 변경가능. (자바스크립트에서는 변수의 타입을 변경할 수 있다. 동적타입언어)
+a2 = 3.14;
+a2 = "js";
+</script>
+
+</body>
+</html>

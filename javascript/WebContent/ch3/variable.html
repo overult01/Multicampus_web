@@ -2,7 +2,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>var</title>
+<!-- 자바스크립트 소스는 어디든 들어갈 수 있다. (head든 body든. 물론 외부파일도 가능)-->
+
+<script type="text/javascript">
+/* document.write("i =" + i + "<br>") */
+document.write("j =" + j + "<br>")
+/* document.write("k =" + k + "<br>")
+document.write("g =" + g + "<br>") */
+
+i = 100;
+var j = 200; // 자바스크립트의 시작을 끌어올린다(hosting) <- 출력되는 건 var가 붙은 이것 뿐.
+const k = 300;
+let g = 400;
+
+/* var는 시작하자마자 변수가 맨 위에 올라가게 해준다. 값은 나중에 할당되더라도 선언은 미리한 것처럼.
+그 밖에 const, let, 키워드 없음은 코드를 만날 때에야 변수의 선언이 되어 미리 출력하려고 하면 에러난다.  */
+
+j = 2000;
+document.write("j =" + j + "<br>")
+
+</script>
+
 </head>
 <body>
 

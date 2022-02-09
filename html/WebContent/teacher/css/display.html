@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#test {
+display: inline; 
+border:2px solid blue;
+width:200px;/*inline방식 : 무시, inline-block -크기 고려*/
+height:100px;
+margin:20px;/* inline 방식:좌우여백 적용. 위아래여백무시*/
+/* visibility: hidden; */
+/*display:none이거나 visibility:hidden */
+}
+span{
+display: inline; 
+border:2px solid green
+}
+
+</style>
+</head>
+<body>
+<span>위</span>
+<div id=test >타겟</div>
+<span>아래</span>
+</body>
+</html>

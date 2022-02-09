@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 1.제목 태그 : 보라색 화면 중간 
+2. 테이블 태그 : 5행 2열
+3px 실선 보이도록 설정
+3. 테이블 왼쪽 컬럼 : 녹색 20px 셀 중앙정렬
+4. 테이블 오른쪽 컬럼 : 하늘색 15px 
+5. 전체 테이블 화면 수평 중앙 정렬
+6. 수정 버튼과 삭제 버튼 생성
+바탕색 오렌지색 . 수평중앙정렬
+ -->
+ 
+<style>
+h1{
+text-align:center;
+color:purple;
+}
+table , td{
+margin:auto;
+border : 3px solid black;
+border-collapse: collapse;
+}
+td:nth-child(2n+1){
+color:green;
+font-size:20px;
+text-align: center;
+width:200px;
+}
+td:nth-child(2n){
+color:aqua;
+font-size:15px;
+width:400px;
+}
+#btn{
+margin : auto;
+text-align:center;
+}
+input[value*=버튼]{
+background-color:orange;
+font-size:20px;
+margin : 50px;
+}
+</style>
+</head>
+<body>
+<h1>상세 게시물 화면</h1>
+<table>
+<tr><td>제목</td><td>제목1</td></tr>
+<tr><td>작성자</td><td>제목1</td></tr>
+<tr><td>내용</td><td>제목1</td></tr>
+<tr><td>작성시간</td><td>제목1</td></tr>
+<tr><td>조회수</td><td>제목1</td></tr>
+</table>
+<div id=btn>
+<input type=button value="수정버튼">
+<input type=button value="삭제버튼">
+</div>
+</body>
+</html>

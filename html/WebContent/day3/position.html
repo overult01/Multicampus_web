@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- position: relative, absolute, fixed(강력한 절대적인 위치) -->
+
+<style type="text/css">
+.box {
+	display: inline-block; /* 자신 크기 가지며 한 줄에 여러개 배치  */
+	width: 100px;
+	height: 100px;
+	background-color: purple;
+	color: white;
+}
+
+#two {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	background-color: red;
+}
+
+#three {
+	position: absolute; /*  겹치는 거 방지하려면 z-index  */
+	top: 50px;
+	left: 50px;
+	background-color: red;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="box" id="one">One</div>
+<div class="box" id="two">Two</div>
+<div class="box" id="three">Three</div>
+<div class="box" id="four">Four</div>
+
+</body>
+</html>

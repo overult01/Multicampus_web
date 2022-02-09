@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1일차 실습문제</title>
+</head>
+<body>
+
+<script>
+
+// prompt로 입력받기
+var korean = parseInt(prompt("국어점수")); //prompt: 문자가 나와도 숫자까지만 입력받음. cf. Number(prompt(문자열))하면 숫자만 입력되어야.
+while(true) {
+	if(korean >= 0 && korean <= 100) {
+		break;
+	}
+}
+
+var math = parseInt(prompt("수학점수"));
+while(true) {
+	if(math >= 0 && math <= 100) {
+		break;
+	}	
+}
+
+var english = parseInt(prompt("영어점수"));
+while(true) {
+	if(english >= 0 && english <= 100) {
+		break;
+	}
+}
+
+var check = confirm("위의 점수를 공개하시겠습니까?");
+∂v
+
+var score = [korean, math, english];
+
+if (check == true) {
+	for (var i = 0; i < 3; i++) {
+		score[i] += 10; // 질문. 왜 더해지지 않는지?
+		if(score[i]>100) {
+			score[i] = 100;
+		}		
+	}
+}	
+	
+
+
+var total = korean + math + english;
+var avg = (korean + math + english) / 3;
+
+if (avg >= 80) {
+	var level = "우수";
+}
+else if (avg >= 60) {
+	var level = "보통";
+} 
+else if (avg >= 40) {
+	var level = "노력";
+} 
+else {
+	var level = "많이 분발";
+} 
+
+if (check == true) {
+document.write("<tr><td>국어</td><td>" + score[0] + "</tr></td>");
+document.write("<tr><td>수학</td><td>" + score[1] + "</tr></td>");
+document.write("<tr><td>영어</td><td>" + score[2] + "</tr></td>");
+document.write("<tr><td>총점</td><td>" + total + "</tr></td>");
+document.write("<tr><td>평균</td><td>" + avg + "</tr></td>");
+document.write("<tr><td>등급</td><td>" + level + "</tr></td>");
+document.write("</table>");
+}
+else {
+	document.write("점수 비공개");
+}
+
+
+/* document.write("<table border ='1'>");
+for (var i = 0; i < 5; i++) {
+	
+} */
+
+
+/* 
+ *  100 60 80
+    100점 60점 80점
+    -100 -80 -60 - 양수 입력까지 반복
+        점수100->처리X
+ 1. prompt 3개 작성(0-100)
+    국어 : xxx
+      수학 : xxx
+      영어:xxx
+  2. confirm 1개 작성
+  위의 점수를 공개하시겠습니까? 확인 / 취소
+	3. 점수 계산
+	총점 / 정수평균 / 등급 출력
+	총점 
+	국어 + 수학 + 영어 
+	(단 위의 점수를 공개하시겠습니까? 확인버튼 클릭시 각 과목당 10점 가산-최고점 100점 )
+	(단 위의 점수를 공개하시겠습니까? 취소버튼 클릭시 각 과목당 가산점 없음 )
+	정수평균 10 / 3--> 3.333
+	80점 이상 "우수"
+	60점 이상 "보통"
+	40점 이상 "노력"
+	그외에 "많이 분발"
+ 테이블태그
+ 국어
+ 수학
+ 영어
+ 총점
+ 평균
+ 등급
+ 
+ */
+
+
+</script>
+</body>
+</html>

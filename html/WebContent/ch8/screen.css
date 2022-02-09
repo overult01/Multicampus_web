@@ -1,0 +1,4 @@
+@charset "UTF-8";
+@media screen { /* 웹페이지의 색상 지정 */
+	body{background-color: green;} 
+}

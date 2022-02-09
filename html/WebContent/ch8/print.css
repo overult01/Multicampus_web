@@ -1,0 +1,4 @@
+@charset "UTF-8";
+@media print { /* 프린터의 색상 지정 */
+	body{background-color: pink;} 
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><!--  7장  -->
+<head>
+    <title>Float With Overflow</title>
+    <meta charset="UTF-8">
+    <style>
+    /* 부모는 hidden. 자식은 float left */
+          div.container {
+         	overflow: hidden; 
+            border : 2px solid red;
+            color:blue;
+        } 
+        div.item {
+            float: right;
+            margin: 0 3px;
+            padding: 10px;
+            border: black solid 1px; 
+        } 
+        
+		h1 {
+			border: 2 solid blue;
+			width: 500px;
+			height: 300px;
+			text-align: center;
+			line-height: 300px; /* 글자높이 */
+		}        
+        
+
+    </style>
+</head>
+<body>
+	<span> 수평 정렬 테스트 첫번째 라인  </span>
+    <div class="container">
+        <div class="item">메뉴 - 1</div>
+        <div class="item">메뉴 - 2</div>
+        <div class="item">메뉴 - 3</div>
+        <div class="item">메뉴 - 4</div>
+        <div class="item">메뉴 - 5</div>
+        <div class="item">메뉴 - 6</div>
+        <div class="item">메뉴 - 7</div>
+        <div class="item">메뉴 - 8</div>        
+    </div>
+	<p> 수평 정렬 테스트 세번째 라인 </p>   
+	
+	<h1> 수직 중앙 정렬 테스트용</h1>
+	
+	
+
+</body>
+</html>

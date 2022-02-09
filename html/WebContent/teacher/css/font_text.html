@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1:nth-child(1) {font-family: monospace;}
+h1:nth-child(2) {
+font-family:serif;
+font-style: italic;
+font-weight: bold;
+font-size : 50px;
+
+}
+h1:nth-child(3) {font-family: sans-serif;}
+h1:nth-child(4) {font-family: 궁서;}
+
+h1:nth-child(5){ 
+text-align: center; 
+text-decoration:underline;
+text-shadow: -10px -10px 5px red;
+box-shadow:10px 10px 5px red;
+/*x좌표(양수-오른쪽, 음수-왼쪽) 
+y좌표(양수-아래쪽, 음수-윗쪽) 음영크기(흐림정도-작은값이면 선명) 음영색상*/
+margin : 0 auto;
+background-color:lime;
+width:500px;
+height:200px;
+vertical-align: middle;
+} 
+h1:nth-child(6){ 
+overflow:hidden;
+text-overflow:ellipsis;
+background-color:pink;
+width:100px;
+height:100px;
+/* padding-top:100px; */
+}
+ h1:nth-child(5) > div {
+ line-height: 200px;}/* 줄간격을 부모 태그의 height로 조정하자. 그럼 수직중앙정렬*/
+/*a 마우스 올리면 밑줄 제거*/
+a{text-decoration: none;}
+</style>
+</head>
+<body>
+<h1> 제목  abcdefghijklmn</h1>
+<h1> 제목  abcdefghijklmn</h1>
+<h1> 제목  abcdefghijklmn</h1>
+<h1> 제목  abcdefghijklmn</h1>
+
+<h1><div>제목  abcdefghijklmn</div></h1>
+
+<h1> 제목  abcdefghijklmn</h1>
+
+<h1><a href="#">링크 문자열 이동 </a></h1>
+</body>
+</html>

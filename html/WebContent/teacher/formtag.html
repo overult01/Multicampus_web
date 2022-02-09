@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- http://localhost:8080/html/formtag.html?search=자바 -->
+<form action="serverlogin.jsp">
+	아이디입력:<input type=text name=id  maxlength="10" size="5" 
+	required="required" placeholder="문자숫자 5자리" pattern="[A-z가-힣0-9]{5}"><br>
+	<!-- value="아이디"  readonly="readonly" disabled="disabled"  -->
+	암호입력:<input type="password" name='pass word' value="1"><br>
+	관리자모드:<input type=hidden name="admin" value='0'><br>
+	성별:<input type="radio" name="gender" value="남자" checked="checked"> 남(브라우저표시)
+	  <input type="radio" name="gender" value="여자" > 여<br>
+	좋아하는과목:<input type="checkbox"  name=subject value="java" checked="checked"> 자바
+	<input type="checkbox"  name=subject value="db" checked="checked"> 데이터베이스
+	<input type="checkbox"  name=subject value="algorithm"> 알고리즘
+	<input type="checkbox"  name=subject value="html"> html<br>
+	
+	<input type="file" name="myfile" >	
+	
+	<button>뭐할까요2?</button><!--텍스트버튼 클릭 기능내장 action url 전달 -->
+	<input type=button value="뭐할까요?"> <!-- 텍스트버튼 클릭해도 기본 내장 기능 없다-사용자 정의 동작(java script) -->
+	<input type="reset" value="삭제"><!-- 텍스트버튼 클릭  기능 내장 입력내용 초기화. 현재화면.  -->
+	<input type=submit value="로그인"> <!-- 텍스트버튼 클릭 기능내장 action url 전달-->
+	<!-- <input type=image src="images/android.jpg"> --><!-- 이미지버튼 클릭 기능내장 action url 전달-->
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+

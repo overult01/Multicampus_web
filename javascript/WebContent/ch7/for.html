@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트로 구구단 만들기</title>
+
+<style type="text/css">
+table, td {
+	border: 2px dotted gray;
+}
+</style>
+
+</head>
+<body>
+
+
+<script type="text/javascript">
+var blank = "<br>";
+
+document.write("<table>");
+for(var i = 1; i <= 9; i++) {
+	document.write("<tr>"); // tr: 테이블에서 행
+	for(var j = 2; j <=9; j++) {
+		if (j == 5) {
+			// 5단일 때만 배경색 지정 
+			document.write("<td style = 'background-color: orange'>" + i + "*" + j + "=" + (i*j) +"</td>");
+			// 5단일 때만 출력안함
+/* 			continue; */
+		}
+		document.write("<td>" + i + "*" + j + "=" + (i*j) +"</td>");
+	}
+	document.write("</tr>");
+
+}
+document.write("</table>");
+
+</script>
+
+</body>
+</html>

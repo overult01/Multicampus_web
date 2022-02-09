@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>One True Layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1" />
+    <style>
+        body {
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        #middle { overflow: hidden; }
+        #left { float: left; width: 150px; background: red; }
+        #right { float: left; width: 350px; background: blue; }
+
+        #top { background: green; }
+        #bottom { 
+        background: purple;
+        position: fixed;
+        width:500px;
+        height:150px;
+        bottom:50px;
+        }
+      </style>
+</head>
+<body>
+    <div id="top">
+    홈페이지 상단 부분(로고 회사명 게시판)Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum.</div>
+    <div id="middle">
+        <div id="left">글쓰기<br> 리스트<br> 글수정 <br> 글삭제<br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut.</div>
+        <div id="right">글쓰기 form ..Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum. Integer a risus sed libero imperdiet lacinia vel vel massa. Vestibulum tempus ullamcorper tellus vitae gravida. Donec cursus, enim at porta auctor, purus sapien luctus erat, vitae placerat ante nibh eget lectus. Integer a leo sit amet neque suscipit commodo sed et mauris. Nullam a turpis nunc. Ut metus risus, scelerisque ac dignissim non, faucibus ac metus.</div>
+    </div>
+    <div id="bottom">회사정보 . 작업결과 오류.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum.</div>
+</body>
+</html>

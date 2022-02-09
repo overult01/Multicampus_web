@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input:checked{border:2px solid red}/*js에서 활용시 필요. 현재 화면에선 checkbox 타입의 특성상 박스 색상 확인안됨*/
+select option[selected]{color:red}
+
+</style>
+</head>
+<body>
+<form action="a.jsp">
+<textarea rows="5" cols="20" name="memo">이것은 메모장입니다.
+여기에 입력하세요</textarea><br>
+<fieldset>
+오늘 점심 메뉴를 정하세요
+<select multiple="multiple" name="menu">
+	<option>짜장</option>
+	<option>짬뽕</option>
+	<option>만두</option>
+	<option selected='selected'>탕수육</option>
+	<option>모두</option>
+
+</select><br>
+	좋아하는과목:<input type="checkbox"  name=subject value="java" checked="checked"> 자바
+	<input type="checkbox"  name=subject value="db" checked="checked"> 데이터베이스
+	<input type="checkbox"  name=subject value="algorithm"> 알고리즘
+	<input type="checkbox"  name=subject value="html"> html<br>
+
+</fieldset>
+<input type=submit value="전송">
+</form>
+</body>
+</html>

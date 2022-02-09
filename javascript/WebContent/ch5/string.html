@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var br = "<br>";
+
+// 자바의 문자열 비교 
+var str1 = "javascript";
+var str2 = new String("javascript");
+document.write(typeof(str1) + br); // string
+document.write(typeof(str2) + br); // object
+// 값만 비교 : == 연산자. 
+document.write( (str1 == str2) + br); // true
+// 값, 타입도 비교 : === 연산자.
+document.write( (str1 === str2) + br); // false
+
+/* 자바의 문자열 비교: equals
+자바스크립트의 문자열 비교: == 연산자. new객체 생성하면 === 연산자 사용. */
+
+document.write("str1의 문자열 갯수 = " + str1.length + br); // 10
+document.write("str1에서 scr 문자가 포함된 위치 = " + str1.indexOf('scr') + br); // 4 (미포함이면 -1)
+
+document.write("str1 대문자 변경 = " + str1.toUpperCase() + br); // JAVASCRIPT
+document.write("str1 6번째 문자(인덱스5)) = " + str1[5] + br); // c
+
+// 조건 삼항 연산자 
+var str3 = "javascript";
+var contain = str3.indexOf("src") >= 0? "포함" : "비포함"; /* true 수식 결과물: false결과물  */
+document.write(contain + br) // 비포함
+
+
+var str4 = new String("javascript");
+var arr = []; // 배열은 object취급
+// instanceof: 더 자세한 타입알아보고 싶을 때.
+document.write((arr instanceof Array) + br); // true
+document.write((str4 instanceof String) + br); // true
+
+// constructor: 더 자세한 타입알아보고 싶을 때. 모든 object에 들어있는 프로퍼티 변수.
+document.write((arr.constructor == Array) + br); // true 
+document.write((str4.constructor == String) + br); // true
+
+</script>
+
+</body>
+</html>

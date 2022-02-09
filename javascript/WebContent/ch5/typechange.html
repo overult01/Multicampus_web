@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var br = "<br>";
+
+// 숫자를 문자열로 변경.
+// Number 객체
+var num1 = 100;
+var num2 = new Number("100");
+if (num1 == num2) {
+	document.write("num1 == num2 같다" + br); // num1 == num2 같다
+}
+
+var num_str1 = num1.toString(); // Number 객체의 toString메서드: 숫자 -> 문자열 변환.
+document.write(typeof(num_str1) +br); // String
+
+// new String()하면 문자열 객체 생성하는 함수로 사용 , 리턴값은 String객체 // new 빼면 일반 함수로 사용하고, 반환값은 문자열.
+var num_str2 = String(num1); // String()함수 호출(함수 내용 실행) : 숫자 -> 문자 변환 역할.
+document.write(typeof(num_str2) +br); // String
+
+var num_str2 = new String(num1); // String 생성자 객체 생성(프로퍼티 변수 + 메서드를 할당)
+
+// 문자열을 숫자로 변경
+// parseInt(), parseFloat()
+document.write(parseInt(3.14) + br); // 3
+document.write(parseInt("3.14") + br); // 3
+document.write(parseInt("3.14abc가나다") + br); // 3  -> parseInt는 문자 숫자 섞여있을 땐, 문자가 나오기 전까지만 숫자로 인식. 
+document.write(parseInt("abc3.14가나다") + br); // NaN 오류. 문자부터 시작하면 못바꾼다. 
+
+document.write(parseFloat(3) + br); // 3
+document.write(parseFloat("3.14") + br); // 3.14
+document.write(parseFloat("3.14abc가나다") + br); // 3.14 -> parseFloat도 문자 숫자 섞여있을 땐, 문자가 나오기 전까지만 숫자로 인식. 
+
+document.write(Number("3.14") + br); // 3.14
+document.write(Number("3") + br); // 3
+document.write(Number("3.14abc") + br); // NaN -> Number는 숫자로만 구성되어 있어야 변환 가능. (parse xx와 차이점)
+/* document.write(Number("3.14") + br); // NaN
+ */
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var br = "<br>";
+
+// 함수 정의할 때 function키워드 사용 
+
+function f1() {
+	document.write("f1실행" + br); // return값이 없으면 안써도 된다.
+}
+
+//매개변수 없고, 리턴값 있는 함수 
+function f2() {
+	document.write("f2실행" + br); 
+	return 10 * 10;	
+}
+
+f1();
+document.write(f1() + br); // 리턴값 없어서 undefined출력.
+
+var ret2 = f2(); 
+document.write("f2실행리턴값 = " + ret2 + br); 
+
+// 매개변수 있고, 리턴값 있는 함수 
+function f3(a) {
+	document.write("f3실행" + br); 
+	return a * a; // a는 number 여야.
+}
+
+document.write("f3실행리턴값 = " + f3(10) + br); // 100
+document.write("f3실행리턴값 = " + f3(true) + br); // 1 -> 논리값이 산술연산자와 쓰이면 true는 1, false 0.
+document.write("f3실행리턴값 = " + f3("js") + br); // NaN -> 매개변수에 문자가 전달은 되었지만, 곱셈연산이 불가능하여 리턴에서 NaN이 나온다. 
+document.write("f3실행리턴값 = " + f3(5, 10) + br); // 25 -> 함수에서 1개만 받기로 되어있어서, 매개변수 1개만 사용하고 나머지 매개변수는 무시.
+document.write("f3실행리턴값 = " + f3() + br); // NaN -> 매개변수가 필요 개수보다 모자르면 에러.
+
+f4(); // 아직 정의되지 않은 함수는 그냥 실행 불가. but 아래에 정의가 되었으면, hoisting된다.
+
+function f4() {
+	document.write("f4실행" + br);
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var br = "<br>";
+
+//객체에 프로퍼티가 없는 형태.
+var obj1 = {};
+
+document.write(typeof(obj1) + br); // object
+
+
+
+// 객체 프로퍼티
+var emp1 = {
+		id: 100,
+		name: "이사원",
+		salary: 56700.99
+};
+
+// 프로퍼티(변수)가 있는지 확인.
+document.write(('id' in emp1) + br); // true
+document.write(('dept' in emp1) + br); // false
+
+// 프로퍼티 추가
+emp1.dept = "교육부";
+document.write(('dept' in emp1) + br); // true
+
+// 삭제 
+delete emp1.salary;
+document.write(('salary' in emp1) + br); // false 
+
+// 추가
+emp1['title'] = "사원";
+document.write(('title' in emp1) + br); // true
+
+// emp1 객체의 프로퍼티(변수) 갯수만큼 모든 변수 출력
+// 변수를 a로 쓴 것.
+document.write("=========")
+for (a in emp1) {
+	document.write(a + ": " +emp1[a] + br);
+}
+document.write("=========")
+
+</script>
+
+</body>
+</html>

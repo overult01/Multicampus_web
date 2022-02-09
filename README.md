@@ -1,7 +1,7 @@
 # Multicampus_web
 html, css, JS관련 실습 내용들입니다.
 
-##html, css개요(html폴더 내)
+## html, css개요(html폴더 내)
 - ch3: html5기본 태그
   + 글자 태그 : 제목, 본문, 앵커
   + 목록 태그
@@ -31,7 +31,7 @@ html, css, JS관련 실습 내용들입니다.
  + [미디어 쿼리를 통한 반응형 웹](https://structuring.tistory.com/175?category=987699)
 
 
-##자바스크립트 개요(javascript폴더 )
+## 자바스크립트 개요(javascript폴더)
 - ch3: 변수와 값
   + 변수
   + [데이터 타입](https://structuring.tistory.com/176?category=987699)

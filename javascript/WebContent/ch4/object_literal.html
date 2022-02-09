@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>객체, 프로퍼티, 메서드</title>
 </head>
 <body>
 
@@ -15,13 +15,23 @@ var obj1 = {};
 document.write(typeof(obj1) + br); // object
 
 
-
+var id = 10000;
 // 객체 프로퍼티
 var emp1 = {
 		id: 100,
 		name: "이사원",
-		salary: 56700.99
+		salary: 56700.99,
+		
+		// 객체 내의 메서드 선언하기
+		print : function(/* 매개변수 */){
+			document.write("<h3>"+ window.id + ":" + this.id + ":" +this.name + ":" +this.salary + "</h3>"); // emp내의 프로퍼티들 가져오기 
+		} // 메서드에서 전역변수 꺼내고 싶을 땐 window. 사용.
 };
+
+// 객체 내 프로퍼티로 선언된 메서드 호출 
+emp1.print();  // 10000:100:이사원:56700.99
+
+
 
 // 프로퍼티(변수)가 있는지 확인.
 document.write(('id' in emp1) + br); // true

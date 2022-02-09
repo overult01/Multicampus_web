@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>생성자</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+/* 객체생성 방법은 2가지
+1. 리터럴 방법 var obj = {...}
+2. 생성자 정의(자바에서 클래스 정의와 유사), 호출  */
+
+// 리터럴 방법
+// 객체를 리터럴 방법으로 표현한 것: JSON (Java Script Oject Notation : 자바스크립트의 객체를 표현하는 방식)
+var e = {id : 100};
+
+
+// 생성자 정의(함수 문법 빌려서 사용. 함수와 구분하기 위해서 생성자는 대문자로 시작.)
+function Employee(id, name, salary) {
+	// this. 은 항상 있어야 한다.
+	// this.프로퍼니 에 값을 대입하면 그 이름을 가진 프로퍼티에 값이 할당된 객체가 생성된다.
+	// 여기서 this는 생성자가 생성하는 객체를 가리킨다.
+	this.id = id; // 선언하는 것. 생성자에 매개변수로 전달받은 id를 Employee 객체 내부의 id로 선언하겠다.
+	this.name = name;
+	this.salary = salary;
+	this.print = function() {
+		document.write("<h3>" + this.id + ":" +this.name + ":" +this.salary + "</h3>"); // emp내의 프로퍼티들 가져오기 
+	}
+	
+}
+
+// 생성자 호출하여 2개 객체 생성
+var e1 = new Employee(100, "최과장", 99000);
+var e2 = new Employee(200, "김부장", 109000);
+
+e1.print(); // 100:최과장:99000
+
+e2.print(); // 200:김부장:109000
+
+
+// e1에 프로퍼티 추가할 수 있다. (자바와 다른 점)
+e1.bonus = 1000; // 방법1: 원래 있는 프로퍼티면 수정, 없으면 추가
+e1['title'] = '과장'; // 방법2
+// 객체 내 모든 프로퍼티(변수) 출력
+for (v in e1) { // 6개의 프로퍼티들이 v에 담겨서 출력된다.
+	document.write("<h3 style = 'color:blue' >" + e1[v] + "</h3>");
+}
+/* 100
+최과장
+99000
+function() { document.write("..")}
+1000
+과장
+ */
+ 
+ 
+// e2 salary 삭제
+delete e2.salary;
+e2.print(); // 200:김부장:undefined
+
+
+</script>
+
+</body>
+</html>

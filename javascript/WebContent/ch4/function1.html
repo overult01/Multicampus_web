@@ -45,6 +45,77 @@ function f4() {
 	document.write("f4실행" + br);
 }
 
+// 함수리터럴로 함수 정의하기. 
+// 자바스크립트는 함수도 변수의 일종으로 본다. hoisting 불가 
+var v_f = function () {
+	document.write("f4실행" + br);	
+}
+
+document.write(v_f() + br); //undefined -> 매개변수를 줄 때는 () 사용.
+document.write(v_f + br); // function () { document.write("f4실행" + br); } ->  변수처럼 사용하면 
+
+
+function exm() {
+	document.write("함수 실행" + br);
+	return 0;
+}
+
+exm(); // 함수실행
+var a = exm();
+document.write(a); // 0 <- 리턴 값 출력.
+
+
+// ===================
+// 참조에 의한 호출, 값에 의한 호출
+
+// 객체변화: p객체 전달하면 객체내부의 id가 100으로 변경되고, id가 추가 
+function exm1(p) {
+	p.id = 100; 
+}
+
+// 객체가 아닌 변수 test_p 변수값을 p변수로 전달하면(=복사)한뒤
+// 전달된 뒤, p변수값이 변경되면 test_p는 변경되지 않는다.
+function exm2(p) {
+	p = 100; // p가 100으로 바뀐다.
+	document.write("exam2 함수 내부 출력: " + p + br);
+}
+
+// test_p는 바뀌지 않고 그대로 출력.
+var test_p = 200;
+exm2(test_p);
+document.write("exam2 함수 내부 출력: " + test_p + br); //200
+
+// 객체를 참조하는 변수 emp1를 p변수로 전달(=복사)하면 같은 주소의 객체를 참조하게 된다.
+// p가 객체내부의 프로퍼티 값이 변경되면 emp1도 같이 변경된 영향을 받는다.
+// 따라서 객체를 참조하는 
+function exam3(p){p.name="변경됨"; p.title = "사원";} // 변경되고, 생성된다.
+var emp1 = {
+		id:100,
+		name:"이사원",
+		salary:45600.00
+};
+document.write("exam3함수외부=>"+ emp1.name +br); // 이사원
+exam3(emp1);
+document.write("exam3함수외부=>"+ emp1.name +br); // 변경됨 
+
+
+// 인수 여러 개를 우아하게 전달하는 방법: 매개변수가 여러 개면 객체로 만들어 전달하자.
+function circle(p) {
+	// 원 중심 x, y에서 반지름이 radius인 원
+	// 바탕색상 color, 2
+	var output = `원 중심 x좌표 = ${p['x']}, y좌표 = ${p.y}에서
+	반지름이 ${p.radius}인 원을 그립니다.
+	원의 바탕색상은 ${p.color}이며
+	선은 ${p.line}값에 따라 그릴 것이며
+	굵기는 ${p.width}로 그립니다`;
+	document.write(output + br);
+}
+// 원 중심 x좌표 = 50, y좌표 = 100에서 반지름이 200인 원을 그립니다. 원의 바탕색상은 red이며 선은 true값에 따라 그릴 것이며 굵기는 2로 그립니다
+
+// 매개변수가 너무 많으면 차라리 리터럴로 객체로 만들자.
+var obj_params = {x: 50, y: 100, radius: 200, color: "red", line: true, width: 2};
+circle(obj_params);
+
 </script>
 
 </body>

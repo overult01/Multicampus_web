@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변수의 유효범위</title>
+</head>
+<body>
+
+<script type="text/javascript">
+/* 자바스크립트는 변수명 중복 불가  */
+
+var br = "<br>";
+var glo = "전역변수";
+function f1() {
+	var loc = "f1지역변수"; // 만약 지역변수 앞의 var를 없애면 전역변수가 된다.(함수 내부에 작성했어도)
+	document.write("f1함수 내부 => 지역변수: " + loc + br);
+	document.write("f1함수 내부 => 전역변수: " + this.glo + br);  // 전역변수를 함수 내부에서 사용하려면 this. 
+	
+	
+}
+f1(); 
+// f1함수 내부 => 지역변수: f1지역변수
+// f1함수 내부 => 전역변수: 전역변수
+
+document.write("f1함수 외부 => 전역변수: " + glo + br); // f1함수 외부 => 전역변수: 전역변수
+/* document.write("f1함수 외부 => 지역변수: " + loc + br); // 에러발생.
+*/
+
+ 
+// let, const 키워드
+{
+	var a = 10;
+	const b = 20;
+	let c = 30;
+/* 	document.write("{} 블록 내부 => " + a + br); // {} 블록 내부 => 10
+	document.write("{} 블록 내부 => " + b + br); // {} 블록 내부 => 20
+	document.write("{} 블록 내부 => " + c + br); // {} 블록 내부 => 30
+ */
+	
+ 	var a = 100; // var: 다시 선언하면 값 수정됨. 재선언, 값수정 가능.
+//	const b = 200; // const: b는 이미 선언이 되어있다는 오류 발생. const: 상수. 값 수정 불가. 재선언 & 수정 모두 불가.
+//	b = 200; // const: b값 수정도 불가. 
+//	let c = 300; // let: 중복 선언 불가능. 오류
+	c = 500; // let: 값 수정은 가능하다.	
+	document.write("{} 블록 내부 => " + a + br); // {} 블록 내부 => 10
+	document.write("{} 블록 내부 => " + b + br); // {} 블록 내부 => 20
+	document.write("{} 블록 내부 => " + c + br); // {} 블록 내부 => 30
+}
+
+document.write("{} 블록 내부 => " + a + br); // {} 블록 내부 => 10
+/* document.write("{} 블록 내부 => " + b + br);
+document.write("{} 블록 내부 => " + c + br); */ // 에러 
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date객체</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var obj = {}; // 아무것도 없어도 객체 취급. 
+var obj2 = new Object(); // 이것도 빈 객체.
+
+var now = new Date(); // 현재 날짜 시각
+document.write("<h3 style = 'color : red'>" + now/*.toString()*/ + "</h3>"); // Wed Feb 09 2022 14:41:09 GMT+0900 (한국 표준시)
+document.write("<h3 style = 'color : green'>" + now.toLocaleDateString() + "</h3>"); // 2022. 2. 9.
+document.write("<h3 style = 'color : blue'>" + now.toLocaleTimeString() + "</h3>"); // 오후 2:41:09
+document.write("<h3 style = 'color : purple'>" + now.toLocaleString() + "</h3>"); // 2022. 2. 9. 오후 2:41:09
+
+
+</script>
+
+</body>
+</html>

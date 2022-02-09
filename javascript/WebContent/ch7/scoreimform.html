@@ -9,31 +9,31 @@
 <script>
 
 // prompt로 입력받기
-var korean = parseInt(prompt("국어점수")); //prompt: 문자가 나와도 숫자까지만 입력받음. cf. Number(prompt(문자열))하면 숫자만 입력되어야.
 while(true) {
+var korean = parseInt(prompt("국어점수")); //prompt: 문자가 나와도 숫자까지만 입력받음. cf. Number(prompt(문자열))하면 숫자만 입력되어야.
 	if(korean >= 0 && korean <= 100) {
 		break;
-	}
+	}	
 }
 
-var math = parseInt(prompt("수학점수"));
 while(true) {
+var math = parseInt(prompt("수학점수"));
 	if(math >= 0 && math <= 100) {
 		break;
 	}	
 }
 
-var english = parseInt(prompt("영어점수"));
 while(true) {
+var english = parseInt(prompt("영어점수"));
 	if(english >= 0 && english <= 100) {
 		break;
 	}
 }
 
 var check = confirm("위의 점수를 공개하시겠습니까?");
-∂v
 
-var score = [korean, math, english];
+
+/* var score = [korean, math, english];
 
 if (check == true) {
 	for (var i = 0; i < 3; i++) {
@@ -43,11 +43,27 @@ if (check == true) {
 		}		
 	}
 }	
-	
+ */	
 
+if (check == true) {  // 확인버튼
+	korean += 10;
+		if(	korean >100) {
+			korean = 100;
+	}		
+	math += 10;
+		if(	math >100) {
+			math = 100;
+	}		
+	english += 10;
+		if(	english >100) {
+			english = 100;
+	}		
+}	
+ 
 
 var total = korean + math + english;
 var avg = (korean + math + english) / 3;
+var level;
 
 if (avg >= 80) {
 	var level = "우수";
@@ -62,7 +78,19 @@ else {
 	var level = "많이 분발";
 } 
 
-if (check == true) {
+var tabletag = `<table order ='1'>
+<tr><td>국어</td><td>${korean}</td></tr>
+<tr><td>수학</td><td>${math}</td></tr>
+<tr><td>영어</td><td>${english}</td></tr>
+<tr><td>공개여부</td><td>${check}</td></tr>
+<tr><td>총점</td><td>${total}</td></tr>
+<tr><td>평균</td><td>${avg}</td></tr>
+<tr><td>등급</td><td>${level}</td></tr>
+`;  /*  역따옴표: 엔터가 있어도 하나의 문자열로 사용할 수 있다. 이 역따옴표 안에서는 $로 변수를 가져온다. */
+
+document.write(tabletag);
+
+/* if (check == true) {
 document.write("<tr><td>국어</td><td>" + score[0] + "</tr></td>");
 document.write("<tr><td>수학</td><td>" + score[1] + "</tr></td>");
 document.write("<tr><td>영어</td><td>" + score[2] + "</tr></td>");
@@ -74,7 +102,7 @@ document.write("</table>");
 else {
 	document.write("점수 비공개");
 }
-
+ */
 
 /* document.write("<table border ='1'>");
 for (var i = 0; i < 5; i++) {

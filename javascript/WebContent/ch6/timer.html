@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>타어머(window내장객체): setTimeout, setInterval</title>
+</head>
+<body>
+
+<div id ="here">여기가 어떻게 변하는지 확인</div>
+
+<script type="text/javascript">
+// setTimeout
+// 3초 후에 here id 태그 내부 문자열 변경
+/* window.setTimeout(function() {
+	document.getElementById("here").innerHTML = "html실행 3초후 현재시간: " + new Date().toLocaleTimeString() + " 표시";
+}, 3000);
+ */
+
+// setInterval
+// 1초마다 무한 반복
+var timer = window.setInterval(function() {
+		document.getElementById("here").innerHTML = "html실행 1초후 현재시간: " + new Date().toLocaleTimeString() + " 표시";
+	}, 1000);
+ 
+// 10초 후 시간 표시 멈춘다
+setTimeout(function() {
+	clearInterval(timer); //clearInterval: setInterval을 멈춰라
+	document.getElementById("here").innerHTML = "10초 지나서 멈춤";
+}, 10000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var userlist = ["test", "mysql", "java", "spring", "jquery"];
+window.onload = function() {
+	// 사용자가 로그인 버튼을 클릭할 때만 입력된 아이디를 가져온다.
+/* 	입력받은 아이디는 userlist 포함되어야 하고
+	userpw, userpw2 암호 2개는 일치해야 한다.
+	-> xxx - xxx 는 정상 로그인 되었습니다. 출력  
+	아이디 조건 만족, 암호 조건 불만족
+	-> 아이디님 암호가 일치하지 않습니다 출력
+	아이디 조건 불만족
+	-> 회원가입을 하세요 출력 
+	*/
+	
+	var button = document.getElementById("loginbtn");
+	button.onclick = function() {
+		var id = document.getElementById("userid"); // id를 가져온다.
+		var password = document.getElementById("userpw"); // pw를 가져온다.
+		var password2 = document.getElementById("userpw2");
+		var div = document.getElementById("result");
+		
+		for(a in userlist) {
+			if (userlist[a] == id.value) {
+				if(password.value == password2.value) {
+					div.innerHTML = id.value + "님 로그인 되었습니다."; 
+				}
+				else {
+					div.innerHTML = id.value + "님 암호가 일치하지 않습니다.";
+				}
+				break;
+			}
+			else {
+			div.innerHTML = "회원가입을 하세요";
+			}
+		}
+	}
+}
+</script>
+
+<form action="login.jsp">
+아이디입력: <input type = text value= "기본값" id = "userid" name ="userid_server"> <br> <!-- name속성: action으로 보낼 값.서버에 보내려고 // id속성: html문서 내부에 css, js가 쓸 수 있게 교류하기 위해.  -->
+암호입력: <input type = password id = "userpw" name = userpw_server> <br>
+암호확인: <input type = password id = "userpw2" name = userpw_server2> <br>
+
+<input type = "button" value = "로그인" id = "loginbtn"> <!-- type을 submit으로 하면 버튼처럼 보이지만, input의 action으로 보낸다. 반면 버튼은 눌러도 아무 동작 x-->
+</form>
+
+<div id = "result">미반영 상태</div>
+
+</body>
+</html>

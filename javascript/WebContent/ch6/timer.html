@@ -18,9 +18,10 @@
 
 // setInterval
 // 1초마다 무한 반복
+// 태그 문자의 내부는 innerHTML(textContent도 같은 기능이지만 textContent에서는 html태그를 인식하지 않고 문자열 그대로 출력하는 차이점.) 
 var timer = window.setInterval(function() {
-		document.getElementById("here").innerHTML = "html실행 1초후 현재시간: " + new Date().toLocaleTimeString() + " 표시";
-	}, 1000);
+		document.getElementById("here").textContent += "html실행 1초후 현재시간: " + new Date().toLocaleTimeString() + " 표시" + "<br>" ;  
+	}, 1000); 
  
 // 10초 후 시간 표시 멈춘다
 setTimeout(function() {

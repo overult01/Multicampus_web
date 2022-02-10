@@ -1,7 +1,5 @@
 # Multicampus_web
 html, css, JS관련 실습 내용들입니다.
-<<<<<<< HEAD
-=======
 
 ## 1️⃣html, css개요(html폴더)
 - ch3: html5기본 태그

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM, Canvas 혼합 예제</title>
+</head>
+
+<script type="text/javascript">
+window.onload = function() {
+	var button = document.getElementById("checkedcolor");
+	button.onclick = function() {
+		var canvas = document.getElementById("mycanvas");
+		// 캔버스 영역 랜더링 컨텍스트 = 붓
+		var ctx = canvas.getContext("2d");
+		
+	/* 	div.innerHTML = "초기상태"; */
+		if (document.getElementById("one").value = "red") {
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "red"; // 상자의 색 채우기 
+			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+			
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "red"; // 상자의 색 채우기 
+			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+		}
+		
+		else if (document.getElementById("two")) {
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "green"; // 상자의 색 채우기 
+			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+			
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "green"; // 상자의 색 채우기 
+			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+		}
+
+		else if (document.getElementById("three")) {
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "blue"; // 상자의 색 채우기 
+			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+			
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "blue"; // 상자의 색 채우기 
+			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+		}
+		
+		else {
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "silver"; // 상자의 색 채우기 
+			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+			
+			// 색상있는 사각형 그리기(기본 검정에서)
+			ctx.fillStyle = "silver"; // 상자의 색 채우기 
+			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
+			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+		}
+
+	}
+	
+}
+</script>
+
+<body>
+
+	<input type=radio id=one value="red" name="col" >빨강색
+	<input type=radio id=two value="green" name="col">녹색 
+	<input type=radio id=three value="blue" name="col">파랑색
+	<input type=radio id=four value="silver" name="col">회색
+
+	<input type = button value = "확인" id = "checkedcolor">
+<canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
+<div id="state">초기상태</div>
+</body>
+
+<!-- 
+4개 라디오버튼 중 1개 선택하면 선택 색상 이름으로 사각형 2개 그린다. 
+선 / 바탕색 - 캔버스 내부 왼쪽 오른쪽 배치
+
+ -->
+ 
+ 
+</html>

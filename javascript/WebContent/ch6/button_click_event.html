@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트처리기 - 방법1: html태그로 등록</title>
+</head>
+<body>
+<!-- html 태그들의 공통속성: title, id, class, 인라인 방식으로 css선언할 때 style, onclick -->
+<!-- <input type = button value = "클릭" onclick = "alert('버튼이 클릭되었습니다.'); document.write('<h1>클릭되었습니다</h1>')"> -->
+<!-- oneclick뒤에 문장을 여러개쓸수 있지만 ;로 구분되어 나열되기 때문에 보기 불편하다. 따라서 실행 문장을 나눌필요. -->
+
+<!-- 방법1: html태그로 등록(html태그 자신이 이벤트 처리를 결정/주도하는 방법) -->
+<!-- 위의 코드와 같은 실행결과이지만, 이벤트처리기로 훨씬 깔끔해졌다. -->
+<input type = button value = "클릭" onclick = "display()">  <!-- onclick부분이 이벤트 처리기  -->
+
+<script type="text/javascript">
+function display() {
+	alert('버튼이 클릭되었습니다.'); 
+	document.write('<h1>클릭되었습니다</h1>');
+}
+</script>
+
+</body>
+</html>

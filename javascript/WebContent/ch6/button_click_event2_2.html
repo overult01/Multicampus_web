@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트처리기 - 방법2_2: 방법2에서 스크립트 태그의 위치 무관하도록 수정, 이벤트 처리기</title>
+
+<script type="text/javascript"> 
+// DOM구조에 접근하는 코드를 사용할 때는 html태그가 먼저 작성되고, 스크립트가 작성되어야 한다. 순서를 잘 지켜야.
+// 하지만 아래 코드로 해결. html문서의 태그가 완전이 생성될 때까지 기다린다.(/html만날 때까지) 그때 함수를 실행하자.
+// window.onload = start; // 이것을 통해서 스크립트태그가 input태그위에 위치해도 동작한다.
+
+/* function start() {
+	document.getElementById('btn').onclick = display; // 자바스크립트는 함수 호이스팅이 가능해서 아래쪽에 선언해도 함수를 위에서 사용 가능.
+	// 돔요소.onclick = 함수; 에서 함수 뒤에 괄호 없는 것이 맞다. 
+	// 만약 display()로 하면 사용자 즉각 함수 호출이다. 클릭되든 아니든 display함수부터 실행된다.
+
+function display() {
+	alert('버튼이 클릭되었습니다.'); 
+		document.write('<h1>클릭되었습니다</h1>');
+	}
+};
+ */
+
+// 위 코드를 무명의 함수로 만들기 
+/* window. */onload = function() {
+	var cnt = 1; // onload연결함수 내부 지역변수
+	
+	// 클릭 이벤트 함수 등록
+	document.getElementById('btn').onclick = function() {
+		// output태그 읽어서 태그 내부 결과를 출력하는 것을 갱신. 일부 문서의 일부 태그내용만 갱신. 
+		document.getElementById('output').innerHTML = 
+			"버튼이" + cnt++ + "번 클릭되었습니다. <br>";
+	};
+	document.getElementById('btn2').onclick = function() {
+		document.getElementById('output').innerHTML = 
+			"클릭 버튼을 클릭해도 카운팅 되지 않습니다.<br>";
+		// 클릭 이벤트 함수 해제(클릭이 발생해도 아무일이 일어나지 않게)
+		document.getElementById('btn').onclick = null;
+	}; // btn 버튼 onclik 끝
+}; // window.onload 끝
+
+
+</script>
+
+</head>
+<body>
+
+<input type = button value = "클릭" id = "btn">
+<input type = button value = "클릭이벤트 제거" id = "btn2">
+
+<div id = 'output'> 자바스크립트에서 클릭이벤트 결과 나오는 부분 </div> <!-- 자바스크립트를 통해 변화하는 내용들을 div내용에 기입해줌. 자바스크립트는 웹페이지에 동적인 효과를 준다. -->
+
+
+</body>
+</html>

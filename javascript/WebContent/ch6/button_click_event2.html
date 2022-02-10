@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트처리기 - 방법2: script내부에서 사용, DOM 객체</title>
+</head>
+<body>
+
+<input type = button value = "클릭" id = "btn">
+
+<script type="text/javascript"> // DOM구조에 접근하는 코드를 사용할 때는 html태그가 먼저 작성되고, 스크립트가 작성되어야 한다. 순서를 잘 지켜야.
+/* 화면구성은 html에, 동작은 스크립트에서 정확히 구분하는 방법  */
+document.getElementById('btn').onclick = display; // 자바스크립트는 함수 호이스팅이 가능해서 아래쪽에 선언해도 함수를 위에서 사용 가능.
+// 돔요소.onclick = 함수; 에서 함수 뒤에 괄호 없는 것이 맞다. 
+// 만약 display()로 하면 사용자 즉각 함수 호출이다. 클릭되든 아니든 display함수부터 실행된다.
+
+function display() {
+	alert('버튼이 클릭되었습니다.'); 
+	document.write('<h1>클릭되었습니다</h1>');
+}
+
+// DOM - Document Object Model -> document.get xx 형태는 모두다 DOM형태이다.
+// 자바스크립트에선 태그 변수 없다. -> 따라서 자바스크립트로 HTML문서를 조작하기 위한 것이 DOM객체.
+</script>
+
+
+
+</body>
+</html>

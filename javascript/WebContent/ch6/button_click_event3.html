@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트처리기 - 방법3: script내부에서 사용 + 여러 함수 연결</title>
+</head>
+<body>
+
+<input type = button value = "클릭" id = "btn">
+<div id = "result"> 자바스크립트에서 클릭이벤트 결과 나오는 부분 </div>
+<script type="text/javascript">
+
+// 이벤트 처리기로 함수 여러개 호출하기 : 클릭하면 함수 2개 호출하기.
+/* document.getElementById('btn').onclick = display;
+document.getElementById('btn').onclick = display2; // 이렇게 하면 display함수로 이벤트 처리기로 등록했다가 display2로 바꾼 것. 따라서 display2만 실행되었다.
+ */
+
+/* document.getElementById('btn').addEventListener('click', display, false);
+document.getElementById('btn').addEventListener('click', display2, false);
+ */
+//이벤트 처리기로 함수 여러개 호출하기 : 클릭하면 함수 2개 호출하기. -> addEventListener(window객체) -> Listener가 window.onload기능을 포함한다. 
+addEventListener('load', function(){
+	document.getElementById('btn').addEventListener('click' , display, false);
+	document.getElementById('btn').addEventListener('click' , display2, false);
+}, false); 
+ 
+function display() {
+	docuemnt.getElementById('result').innerHTML += "버튼이 클릭되었습니다.";
+}
+
+
+function display2() {
+	docuemnt.getElementById('result').innerHTML += "버튼이 클릭되었습니다2.";
+}
+
+
+// DOM - Document Object Model -> document.get xx 형태는 모두다 DOM형태이다.
+// 자바스크립트에선 태그 변수 없다. -> 따라서 자바스크립트로 HTML문서를 조작하기 위한 것이 DOM객체.
+
+</script>
+
+</body>
+</html>

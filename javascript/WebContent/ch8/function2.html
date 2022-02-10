@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>즉시 실행 함수</title>
+</head>
+<body>
+
+<script type="text/javascript">
+// 즉시실행 함수: 바로 한 번만 즉시 사용 후에 사라지는 함수.
+(function(i,j) {
+	document.write("이름없는 함수 실행중<br>");
+	return i * j;
+}) (10, 20);
+
+// arguments 객체, 변수
+var f = function(a = 5) { // undefined상태이면 자동으로 a에 5할당
+	if(arguments.legth > 1) { // 인자의 개수 조사.
+		document.write("1개만 전달하세요 <br>"); // arguments:  현재 함수를 호출하는 곳에서 전달한 매개변수를 배열 관리하는 변수.
+	}
+	if(typeof(a)=='number') {
+		return a*a;	
+	}
+	else {
+		return "연산불가";
+	}
+}
+
+
+document.write(f(10) + "<br>"); // 100
+document.write(f() + "<br>"); // 25
+document.write(f(1, 2, 3) + "<br>"); // 1 -> 매개변수가 남으면 필요한 부분만 사용하고 무시.
+document.write(f("") + "<br>"); // 함수 내 if문 없으면) 0,  있으면) 연산불가
+
+/* callback함수: 다른 함수에 매개변수로 전달하는 함수. 
+ * => 자바스크립트는 함수도 변수로 취급. ex) var c = new Function("매개변수", "구현내용").따라서 함수는 매개변수도 될 수 있다.
+- setTimeout메서드(함수명, 시간); // 지정 시간 후에 지정한 함수를 실행한다.
+ */
+
+// 콜백 함수
+function f1(a) {
+	if(typeof(a) == 'function') {
+		a();
+	}
+}
+
+function f2() {
+	alert("f2호출 실행 중");
+}
+
+document.write();
+
+f1(f2);
+f1(10); // 숫자는 함수처럼 호출할 수가 없다. 에러발생.
+
+/* 
+// 1. 함수 정의 + 호출
+function sample(x) {
+	return x*x;
+}
+var ret1 = sample(10);
+
+// 2. 즉각적으로 함수 호출
+// 이 ret변수는 계산된 결과인 리턴값이다. 따라서 숫자 타입.
+var ret2 = (function(x) {
+	return x*x;
+}) (10);
+// 결과적으로 ret1, 2 모두 같은 값이다. 
+ */
+ 
+// 3. 화살표 함수
+var func = (x) => { return x + y; }; // 아직까진 함수 
+document.write(func(10, 20) + "<br>");
+
+// 매개변수가 1개만 있는 유형은 괄호 생각 가능. 리턴문 1개만 있는 문장의 형태면 return,{} 생략 가능
+var func2 = x => x * x;
+document.write(func2(10) + "<br>");
+
+document.write( (x => x * x)(10) + "<br>");
+
+
+</script>
+
+</body>
+</html>
+

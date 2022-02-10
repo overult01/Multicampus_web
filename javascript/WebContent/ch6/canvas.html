@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	// 그림 영역 
+	var canvas = document.getElementById("mycanvas");
+	// 캔버스 영역 랜더링 컨텍스트 = 붓
+	var ctx = canvas.getContext("2d");
+	// 그리기. 사각형 그리기
+	ctx.strokeRect(50, 60, 200, 100); // x, y, 가로, 세로
+	ctx.fillRect(50, 200, 200, 100); // 바탕색있는 사각형 만들기 
+	ctx.clearRect(100, 250, 100, 50); // 사각형 삭제
+	
+	ctx.beginPath();
+	ctx.moveTo(60,10);
+	ctx.lineTo(110, 100);
+	ctx.lineTo(10, 100);
+	ctx.closePath();
+	ctx.stroke(); // 그리기
+	ctx.fill();
+	
+	// 텍스트 출력
+	ctx.font = "40px serif";
+	ctx.strokeText("Hello Canvas", 300, 200);
+	ctx.fillText("Hello Canvas", 300, 300);
+	
+	// 이미지
+//	var myimg = new Image();
+	// file:///Users/jungmin/git/Multicampus_web/html/WebContent/images/html5.jpg
+//	myimg.src = "../html/WebContent/images/html5.jpg"; // 현재 서버루트로부터 경로 
+	// 이미지 읽어오는데 시간 소요. 안정성 위해
+//	myimg.onload = function() {
+//		cts.drawImage(myimg, 0, 0); // 이미지는 drawImage로 그린다.
+//	}
+	
+	// 호 그리기 
+	// 30 Dgree-radian변환공식
+	// 원의 중심 좌표, 반지름, 호시작부분30도, 호종료120도, 시계방향 
+/* 	ctx.beginPath();
+	ctx.arc(100, 100, 80, 30 * Math.PI/180, 120 * Math.PI/180, false); // false: 시계방향 
+ *///	ctx.stroke();
+/* 	ctx.fill();
+	ctx.closePath();
+	
+	ctx.beginPath(); // 	ctx.beginPath(), 	ctx.closePath()를 해주면 시작, 끝이 명료해진다.	
+	ctx.arc(500, 100, 80, 30 * Math.PI/180, 120 * Math.PI/180, true); // true: 반시계방향 
+//	ctx.stroke();
+	ctx.fill();
+	ctx.closePath();
+ */
+ 
+// 색상있는 사각형 그리기(기본 검정에서)
+	ctx.strokeStyle = "red"; // 선이 빨간색 
+	ctx.fillStyle = "blue"; // 상자의 색 채우기 
+	ctx.lineWidth = 10; // 선의 굵기 
+	ctx.strokeRect(50, 60, 200, 100); // x, y, 가로, 세로
+	ctx.fillRect(50, 200, 200, 100); // 바탕색있는 사각형 만들기 
+	
+	
+// 텍스트 출력
+	ctx.font = "40px serif";
+	ctx.strokeText("Hello Canvas", 300, 200);
+	ctx.fillText("Hello Canvas", 300, 300);
+ 
+ }
+</script>
+
+</head>
+<body>
+
+
+
+<canvas id = "mycanvas" width = "600" height = 400 style = "border: 2px solid pink"></canvas>
+
+</body>
+</html>

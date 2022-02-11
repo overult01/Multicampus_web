@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>브라우저 정보 객체</h1>
+<script>
+// navigator : 브라우저 자체에 대한 정보를 준다.
+document.write("<h3>" + navigator.appCodeName + "</h3>");
+document.write("<h3>" + navigator.userAgent + "</h3>"); // 어떤 브라우저를 쓰는지
+document.write("<h3>" + navigator.platform + "</h3>");
+
+//if(navigator.userAgent.indexOf("Chrome") >= 0) {/*크롬*/}
+
+</script>
+
+
+<h1>히스토리 객체</h1>
+<!-- history : 실행했던 사이트를 순서대로 기억. -->
+<a href = "javascript:history.back()"> 이전으로 되돌아가기 (뒤로 버튼)</a><br> <!-- javascript: 로 시작하면 자바스크립트 코드를 실행하도록 함  -->
+<!-- <a href = "javascript:history.go(-1)"> 이전으로 되돌아가기 (뒤로 버튼)</a><br> -->
+<a href = "javascript:history.forward()"> 앞으로 가기 (앞으로 버튼)</a><br>
+<!-- <a href = "javascript:history.go(1)"> 앞으로 가기 (앞으로 버튼)</a><br> -->
+
+
+<h1>location객체: url 정보 객체</h1>
+<form action="a.jsp">
+<input type = text id = "name" name = "name"> <!-- id: css, js에서 이 태그를 읽어가기 위해. name: 서버에 전달  -->
+<input type = button value = "전송" id = "send"> <!-- 원래 submit으로 타입을 줘야 폼태그의 action으로 전송가능. -->
+</form>
+
+<script type="text/javascript">
+
+// location.href 변수 , location.replace 함수 : url 정보 수정 기능.
+
+// 항상 window.onload해주는 것이 좋은 코드이다 
+window.onload = function() {
+	document.getElementById("send").onclick = function() {
+		location.href = "a.jsp"; // url정보를 바꾼 것. 이동하는 효과 // url이 http://localhost:8080/javascript/ch13/a.jsp
+		// location.replace = "a.jsp"; -> but replace는 이동한 히스토리를 남기지 않는다.
+	}
+}
+
+</script>
+
+</body>
+</html>

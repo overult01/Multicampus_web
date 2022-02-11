@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 모든 html태그 공통속성
+title
+id
+class
+style
+onclick
+ -->
+<input type=button value="클릭" id="btn">
+<div id="result"> </div>
+<script>
+//DOM - DOCUMENT OBJECT MODEL
+// HTML 태그 - 자바스크립트 태그 표현 객체 
+/*document.getElementById('btn').onclick = display;
+document.getElementById('btn').onclick = display2;
+*/
+/*document.getElementById('btn').addEventListener('click' , display, false);
+document.getElementById('btn').addEventListener('click' , display2, false);
+*/
+addEventListener('load', function(){
+	document.getElementById('btn').addEventListener('click' , display, false);
+	document.getElementById('btn').addEventListener('click' , display2, false);
+}, false);
+
+function display(){
+	alert('버튼이 클릭되었습니다.');
+	document.getElementById('result').innerHTML += '버튼이 클릭되었습니다.';
+}
+
+function display2(){
+	alert('버튼이 클릭되었습니다.2');
+	document.getElementById('result').innerHTML += '버튼이 클릭되었습니다.2';
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+

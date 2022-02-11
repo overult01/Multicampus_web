@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	//그림 영역 
+	var canvas = document.getElementById("mycanvas");
+	//캔버스 영역 렌더링 컨텍스트  = 붓
+	var ctx = canvas.getContext("2d");
+	//그리기
+	//사각형
+	//ctx.strokeRect(50,60,200,100);//x,y,가로,세로. 선 사각형
+	//ctx.fillRect(50,200,200,100); // 바탕색 사각형
+	//ctx.clearRect(100,250,100,50);// 사각형 삭제
+	
+	//삼각형
+	//ctx.beginPath();
+	//ctx.moveTo(60, 10);
+	//ctx.lineTo(110, 100);
+	//ctx.lineTo(10, 100);
+	//ctx.closePath();
+	//ctx.stroke();
+	//ctx.fill();
+	
+	//텍스트출력
+	//ctx.font="40px serif"
+	//ctx.strokeText("Hello Canvas", 300, 200);
+	//ctx.fillText("Hello Canvas", 300, 300);
+	
+	//이미지
+/*	var myimg = new Image();
+	//http://localhost:8080/html/images/html5.jpg
+	//http://localhost:8080/javascript/canvastest.html
+	//myimg.src = "../html/images/html5.jpg";//현재파일로부터 경로
+	//ctx.drawImage(myimg, 50,50);
+	
+	//이미지 읽어오는데 시간 소요-안정적
+	myimg.onload = function(){
+		ctx.drawImage(myimg, 50,50, myimg.width, canvas.height);
+	}
+	
+	myimg.src = "/html/images/html5.jpg";//현재서버루트로부터 경로
+	*/
+	//30 DGREE-radian변환공식
+	//원의중심좌표, 반지름, 호시작부분30도, 호종료120도.시계방향
+/*	ctx.beginPath();
+	ctx.arc(100, 100, 80, 30 * Math.PI/180 , 120 *Math.PI/180 , false );
+	//ctx.stroke();
+	ctx.fill();//ctx.closePath();포함
+	ctx.closePath();
+	
+	ctx.beginPath();//반시계방향
+	ctx.arc(500, 100, 80, 30 * Math.PI/180 , 120 *Math.PI/180 , true);
+	//ctx.stroke();
+	ctx.fill();
+	ctx.closePath();
+*/
+
+//색상
+ctx.strokeStyle="red";
+ctx.fillStyle = "blue";
+ctx.lineWidth = 10;
+ctx.strokeRect(50,60,200,100);//x,y,가로,세로. 선 사각형
+ctx.fillRect(50,200,200,100); // 바탕색 사각형
+	
+//텍스트출력
+ctx.font="40px serif";
+ctx.lineWidth=5;
+ctx.strokeText("Hello Canvas", 300, 200);
+ctx.fillText("Hello Canvas", 300, 300);	
+	
+	
+}
+</script>
+</head>
+<body>
+<canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
+</body>
+</html>

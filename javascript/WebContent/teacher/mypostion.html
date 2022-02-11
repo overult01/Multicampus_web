@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type=button value="위치추적시작" id="start">
+<input type=button value="위치추적종료" id="stop">
+<div id="position"></div>
+<script>
+
+var watchid;
+window.onload = function(){
+document.getElementById("start").onclick = function(){
+	//geolocation 위치 파악 메소드 호출 - 결과 - 위+경+고 출력 - map
+	watchid = navigator.geolocation.watchPosition(success , fail);
+	document.getElementById("position").innerHTML = "위치추적을 시작합니다";
+}
+document.getElementById("stop").onclick = function(){
+	//geolocation 위치 파악 종료 메소드 호출 -
+	navigator.geolocation.clearWatch(watchid);
+	document.getElementById("position").innerHTML = "위치추적을 중단합니다";
+}
+}//onload
+
+function success(pos){//위치추적성공실행등록
+	var lat = pos.coords.latitude;//위도
+	var lon = pos.coords.longitude;//경도
+	document.getElementById("position").innerHTML = 
+		"나의위도=" + lat + ", 나의 경도=" + lon;
+	//새창열기
+	open("https://maps.google.com?q=" + lat + "," + lon, 
+			"위치정보",
+			"width=600, height=400, resizable=yes");
+	//+주변 xxxxx
+}
+/* maps.google.com?q=37.5128064,127.0317056  */
+
+		
+		
+function fail(err){//사용자허용x, 위치추적장치고장,  위치추적불가장소
+	document.getElementById("position").innerHTML = 
+		"오류발생=" + err.code + " 번 " + err.message;
+}
+</script>
+<div id="result"></div>
+</body>
+</html>

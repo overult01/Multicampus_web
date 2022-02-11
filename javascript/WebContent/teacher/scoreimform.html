@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/* 
+ *  100 60 80
+    100점 60점 80점
+    -100 -80 -60 200 300 - 양수 입력까지 반복
+        점수100->처리X
+ 1. prompt 3개 작성(0-100)
+    국어 : xxx
+      수학 : xxx
+      영어:xxx
+  2. confirm 1개 작성
+  위의 점수를 공개하시겠습니까? 확인 / 취소
+	3. 점수 계산
+	총점 / 정수평균 / 등급 출력
+	총점 
+	국어 + 수학 + 영어 
+	(단 위의 점수를 공개하시겠습니까? 확인버튼 클릭시 각 과목당 10점 가산-최고점 100점 )
+	(단 위의 점수를 공개하시겠습니까? 취소버튼 클릭시 각 과목당 가산점 없음 )
+	정수평균 10 / 3--> 3.333
+	80점 이상 "우수"
+	60점 이상 "보통"
+	40점 이상 "노력"
+	그외에 "많이 분발"
+ 테이블태그
+ 국어
+ 수학
+ 영어
+ 총점
+ 평균
+ 등급
+ 
+ 
+ */
+while(true){
+var kor = parseInt(prompt("국어점수입력"));//0-100 100점 점수100
+if(kor >= 0 && kor <= 100){ break; }
+}
+while(true){
+	var mat = parseInt(prompt("수학점수입력"));//0-100 100점 점수100
+	if(mat >= 0 && mat <= 100){ break; }
+}	
+while(true){
+	var eng = parseInt(prompt("영어점수입력"));//0-100 100점 점수100
+	if(eng >= 0 && eng <= 100){ break; }
+}		
+var open = confirm("위의 점수를 공개하시겠습니까?");	
+if(open == true){//확인버튼 클릭
+	if(kor*1.1 > 100){kor = 100;}
+	else{ kor = kor * 1.1; }
+	if(mat*1.1 > 100){mat = 100;}
+	else{ mat = mat * 1.1; }
+	if(eng*1.1 > 100){eng = 100;}
+	else{ eng = eng * 1.1; }
+}//가산점
+
+var sum = kor + mat + eng;
+var avg = parseInt(sum / 3);
+var grade;
+if(avg >= 80){ grade = "우수";}
+else if(avg >= 60){ grade = "보통";}
+else if(avg >= 40){ grade = "노력";}
+else{ grade = "많이 분발";}
+
+var tabletag = `<table style="border:2px solid lime">
+<tr><td>국어</td><td>${kor}</td></tr>
+<tr><td>수학</td><td>${mat}</td></tr>
+<tr><td>영어</td><td>${eng}</td></tr>
+<tr><td>공개여부</td><td>${open}</td></tr>
+<tr><td>총점</td><td>${sum}</td></tr>
+<tr><td>평균</td><td>${avg}</td></tr>
+<tr><td>등급</td><td>${grade}</td></tr>
+</table>`;
+
+document.write(tabletag);
+
+var emp2 = {
+		id : 200,
+		name:"박대리",
+		salary:55600.99,
+		/*toString:function(){
+			return "<h3>"+this.id+":"+this.name+":"+this.salary+"</h3>";
+		} */
+		
+	};
+
+document.write("<h3>"+ emp2.id +"</h3>");
+document.write("<h3>"+ emp2/*.toString()*/ +"</h3>");
+</script>
+
+
+</body>
+</html>

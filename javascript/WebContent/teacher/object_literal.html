@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+//객체 프로퍼티가 없는 형태
+var obj1 = {};
+document.write(typeof(obj1) + br);
+
+//객체 프로퍼티(변수 + 메소드)  있는 형태
+//객체 리터럴 표현 --> JSON 형태 변환 JAVA SCRIPT OBJECT NOTATION
+var emp1 = {
+	id:100,
+	name:"이사원",
+	salary:56700.99,
+	print:function(){
+		//var id = 200;
+		document.write("<h3>"+this.id +":" + this.name + ":" + this.salary+"</h3>");
+	}
+}
+
+var emp2 = {
+		id:200,
+		name:"박사원",
+		salary:57700.99,
+		print:function(){
+			//var id = 200;
+			document.write("<h3>"+this.id +":" + this.name + ":" + this.salary+"</h3>");
+		}
+	}
+	
+emp1.print();
+
+
+document.write( ('id' in emp1) + br);//true
+document.write( ('dept' in emp1) + br);//false
+
+emp1.dept = "교육부";//추가
+document.write( ('dept' in emp1) + br);//true
+//삭제
+delete emp1.salary;
+document.write( ('salary' in emp1) + br);//false
+
+emp1['title'] = "사원";//추가
+document.write( ('title' in emp1) + br);//true
+
+//emp1 객체 변수 갯수만큼 모든 변수 출력
+document.write("================" + br);
+for(a in emp1){// a-> 'id' name dept title 변수들 
+	document.write(a + ":" + emp1[a] + br);
+}
+document.write("================" + br);
+
+
+		
+		
+
+</script>
+</body>
+</html>
+
+
+팀 23
+개인 17
+다수결 1
+

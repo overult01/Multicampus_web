@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type=radio id=one value="red" name="col" >빨강색
+<input type=radio id=two value="green" name="col">녹색 
+<input type=radio id=three value="blue" name="col">파랑색
+<input type=radio id=four value="silver" name="col">회색
+<canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
+<div id="state"></div>
+
+<script>
+window.onload = function(){
+	
+	var radio_list = document.getElementsByName("col");
+	
+	for(r in radio_list){
+		//반복하면서 4번--> 클릭하면 함수 등록 완료 -radio_list[r]-마지막요소 
+		// 클릭 
+		radio_list[r].onclick = function(){
+			var mycolor= this.value;
+			var mycanvas = document.getElementById("mycanvas");
+			var ctx = mycanvas.getContext("2d");
+			ctx.strokeStyle = mycolor;
+			ctx.fillStyle = mycolor;
+			ctx.strokeRect(50 , 60 , 200, 100);
+			ctx.fillRect(300,  60 , 200, 100);
+		}
+	}
+	
+	//클릭하면 이 때 동작 
+	
+/* 	document.getElementById("one").onclick = function(){
+		var mycolor= document.getElementById("one").value;
+		var mycanvas = document.getElementById("mycanvas");
+		var ctx = mycanvas.getContext("2d");
+		ctx.strokeStyle = mycolor;
+		ctx.fillStyle = mycolor;
+		ctx.strokeRect(50 , 60 , 200, 100);
+		ctx.fillRect(300,  60 , 200, 100);
+	} */
+} 
+</script>
+</body>
+
+<!-- 
+4개 라디오버튼 중 1개 선택하면 선택 색상 이름으로 사각형 2개 그린다. 
+선 / 바탕색 - 캔버스 내부 왼쪽 오른쪽 배치
+
+ -->
+ 
+ 
+ 
+ 
+ 
+</html>

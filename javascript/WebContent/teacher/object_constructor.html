@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//객체생성 - 1.리터럴 방법 var obj = {.....}
+//        2. 생성자 정의.(자바 클래스정의 유사). 호출
+
+//생성자 함수 문법 빌려서 정의
+function Employee(id, name, salary){
+	this.id = id ;
+	this.name = name;
+	this.salary = salary;
+	this.print = function(){
+		document.write("<h3>"+this.id +":" + this.name + ":" + this.salary+ "</h3>");
+	}
+}
+
+//생성자 호출하여 n개 객체 생성
+var e1 = new Employee(100, "최과장", 999900);
+var e2 = new Employee(200, "김부장", 1099900);
+e1.print(); 
+e2.print();
+
+//e1 bonus 변수, title 
+e1.bonus = 1000;
+e1['title'] = '과장';
+
+//e1 객체 모든 변수 출력 for in
+for(v in e1){//v-'id' 'name'salary' 'bonus' 'title' 'print'
+	document.write("<h3 style='color:blue'>" + e1[v] + "</h3>");
+}
+
+
+e1.print();
+
+//e2 salary 삭제
+delete e2.salary;
+e2.print();
+
+
+</script>
+</body>
+</html>
+
+
+

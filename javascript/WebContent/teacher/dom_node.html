@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	var body = document.getElementById("b");//DOM객체
+	//body 자식태그 출력
+	/*body_childs = body.childNodes;//배열
+	for(var i = 0; i < body_childs.length; i++){
+		if(body_childs[i].nodeType == 1){//태그( 2-속성  3-텍스트값 )
+			document.write(body_childs[i].tagName +"<br>");
+		}
+	}*/
+	//TEST1 Id
+	//var one = document.getElementById("one");//최초 ONE ID 태그만 . 나머지 무시
+	//document.getElementById("output").innerHTML = one.innerHTML;
+	
+	//test2 태그명
+/* 	var a_list = document.getElementsByTagName("a");
+	for(var i = 0; i < a_list.length; i++){
+		document.getElementById("output").innerHTML += 
+			a_list[i].innerHTML +"<BR>";
+	} */
+	
+/* 	//test3 클래스명
+	var choice_list = document.getElementsByClassName("choice");
+	for(var i = 0; i < choice_list.length; i++){
+		document.getElementById("output").innerHTML += 
+			choice_list[i].innerHTML +"<BR>";
+	} */
+	
+	//test4 css selector 문법. 리턴 1개. 나머지 무시
+/* 	var h1_a = document.querySelector("h1 a");
+	document.getElementById("output").innerHTML = h1_a.innerHTML +"<BR>"; */
+
+	//test5 css selector 문법. 리턴 여러개. 
+	var h1_a_list = document.querySelectorAll("h1 a");
+	for(var i = 0; i < h1_a_list.length; i++){
+		//h1_a_list[i].href = "same"+i+".html";동일
+		h1_a_list[i].setAttribute("href", "http:.../same"+i+".html");
+		
+		h1_a_list[i].removeAttribute("href");
+		
+		//id , class, style, title
+		h1_a_list[i].style.backgroundColor="pink";
+		document.getElementById("output").innerHTML += 
+			h1_a_list[i].href +"<BR>";//동일
+			//h1_a_list[i].getAttribute("href");
+			//innerHTML(html태그 인식) 대신에 textContent(html태그 텍스트로 )
+	} 
+}
+</script>
+</head>
+<body id="b">
+<a id="one" href="b.html">링크문자열1</a>
+<a class="choice" href="c.html">링크문자열2</a>
+<a href="d.html">링크문자열3</a>
+<h1><a class="choice"  href="e.html">링크문자열4</a></h1>
+<h1><a class="choice" href="f.html">링크문자열5</a></h1>
+<div id="output"></div>
+</body>
+</html>

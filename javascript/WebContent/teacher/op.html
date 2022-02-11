@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br = "<br>";
+document.write( 10 / 3 + br);//number 실수몫
+document.write( parseInt(3.567) + br);// 문자열이나 실수를 정수로 변경(버림)
+document.write(Math.round(3.567) + br);//,반올림
+document.write( 10 % 3 + br);// 정수몫 구하고 나서 남은 나머지 
+document.write( 5 % 1.5 + br);// 정수몫 구하고 나서 남은 나머지 
+
+document.write( true + true + br);//boolean(true - 1 false - 0)
+document.write( true + false + br);//boolean
+document.write( false + false + br);//boolean
+
+document.write( undefined + 1 + br);//NaN(Not a Number)
+document.write( null + 1 + br);//1(null - 0)
+
+if(undefined === null){
+	document.write( "같다" + br);
+}
+
+if(100 === "100"){
+	document.write( "같다" + br);
+}
+// !=  !==
+	
+
+var str1 = "java script";
+var str2 = new String("java script");
+document.write( typeof(str1) + br);//string
+document.write( typeof(str2) + br);//object
+document.write( (str1 == str2) + br);
+/* equals메소드 대신 == 연산자 사용  . */
+document.write("str1 의 문자열갯수=" + str1.length + br);
+document.write("str1 scr 문자 포함위치=" + str1.indexOf('src') + br);
+if(str1.indexOf("src")>= 0){
+	//포함
+}
+else{
+	//비포함
+}
+document.write("str1 대문자변경=" + str1.toUpperCase() + br);
+document.write("str1 의 6번째문자 (5번인덱스)=" + str1[5] + br);
+
+// &  , && , |, ||, ! 
+
+var str3 = "java script";
+var contain = str3.indexOf("scr")>= 0? "포함" : "비포함";
+document.write(contain + br);
+
+var str4 = new String("java script");//object취급
+var arr = [];//배열object취급
+
+document.write((arr instanceof Array) + br);//String , MyObj, Window, Array ...객체종류판단
+document.write((str4 instanceof String) + br);//String , MyObj, Window, Array ...객체종류판단
+
+document.write((arr.constructor == Array) + br);//String , MyObj, Window, Array ...객체종류판단
+document.write((str4.constructor == String) + br);//String , MyObj, Window, Array ...객체종류판단
+
+//객체 delete new in
+var str5 = "100+200";
+eval(str5);
+
+//숫자를 문자열 변경
+var num1 = 100;//number
+var num2 = new Number("100");//object
+if(num1 == num2){
+	document.write("num1 == num2 같다" + br);
+} 
+
+var num_str1 = num1.toString();
+document.write(typeof(num_str1) + br);
+
+var num_str2 = String(num1);//String()함수 호출(함수내용실행)
+document.write(typeof(num_str2) + br);
+
+/*var num_str2 = new String(num1);//String 생성자 객체 생성(프로퍼티변수+메소드들 할당)
+document.write(typeof(num_str2) + br);*/
+
+//문자열을 숫자로 변경
+document.write(parseInt(3.14) + br);//3
+document.write(parseInt("3.14") + br);//3
+document.write(parseInt("3.14abc가나다") + br);//3
+document.write(parseInt("가나다3.14abc") + br);//NaN(Not a Number-오류)
+
+document.write(window.parseFloat(3) + br);//3
+document.write(parseFloat("3.14") + br);//3.14
+document.write(parseFloat("3.14abc가나다") + br);//3.14
+
+document.write(window.Number("3.14") + br);
+document.write(Number("3") + br);
+//document.write(Number("3.14abc") + br);//NaN
+document.write(Number("abc3.14abc") + br);//NaN
+
+document.write((this instanceof Window) + br);//NaN
+//document.write((this instanceof window) + br);//NaN
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table, td {
+ border : 2px dotted lime;
+}
+</style>
+</head>
+<body>
+<table>
+<script>
+for(var i = 1; i <=9; i++){//라인
+	document.write("<tr>");//9
+	for(var dan=2; dan<=9; dan++){
+		if(dan == 5){
+			continue;
+			//document.write("<td style='background-color:orange'>"+ dan + '*' + i + '=' + (dan*i) + "</td>");	
+		}
+		document.write("<td>"+ dan + '*' + i + '=' + (dan*i) + "</td>");//9*9
+	}
+	document.write("</tr>");
+}
+</script>
+</table>
+</body>
+</html>

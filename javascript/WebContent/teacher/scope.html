@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var br="<br>";
+var scope="전역변수";
+function f1(){
+	/*var */scope = "f1 지역변수";
+	document.write("f1함수 내부=>" + scope + ":" + this.scope + br);
+}
+
+f1();
+document.write("f1함수 외부=>" + scope + br);
+
+//let , const-ecma  6 
+//let, const 블록 내부 사용 범위 scope.
+{
+ var a= 10;
+ const b = 20;
+ let c = 30;
+// document.write("{}블록내부=>" + a + br);
+// document.write("{}블록내부=>" + b + br);
+// document.write("{}블록내부=>" + c + br);
+ var a = 100;//var 키워드 선언 중복 가능. 값 수정 
+ //const b = 200; //const 선언 중복 불가능. 오류
+ //b = 200;//b 상수. 1번 값 설정 수정 불가.변수 수정 오류
+ //let c = 300;//let 중복 선언 불가능.오류
+ c = 300; // 값 수정 . 가능
+ document.write("{}블록내부=>" + a + br);
+ document.write("{}블록내부=>" + b + br);
+ document.write("{}블록내부=>" + c + br);
+}
+document.write("{}블록외부=>" + a + br);
+//document.write("{}블록외부=>" + b + br);
+//document.write("{}블록외부=>" + c + br);
+
+
+</script>
+</body>
+</html>

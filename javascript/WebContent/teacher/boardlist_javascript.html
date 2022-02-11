@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+/* 1. 전역변수로 Board 생성자  정의
+==> 객체 변수 
+seq , title, contents , time=>객체생성현재시각으로 설정 */
+
+function Board(seq, title, contents){
+	this.seq = seq;
+	this.title = title;
+	this.contents = contents;
+	this.time = new Date().toLocaleString();
+	this.output = function(){
+		return this.seq+":"+this.title+":"+this.contents+":"+this.time;
+	}
+	
+}
+//2. Board타입 객체 5개 생성
+var b1 = new Board(1, "제목1", "내용1");
+var b2 = new Board(2, "제목2", "내용2");
+var b3 = new Board(3, "제목3", "내용3");
+var b4 = new Board(4, "제목4", "내용4");
+var b5 = new Board(5, "제목5", "내용5");
+
+//3. 2번 5개 객체를 boardlist 배열 저장
+var boardlist=[];
+boardlist.push(b1);
+boardlist.push(b2);
+boardlist.push(b3);
+boardlist.push(b4);
+boardlist.push(b5);
+
+//document.write(boardlist[0].time+"<br>");
+//4. 화면 출력
+document.write("<ul>");
+for(var i = 0; i < boardlist.length; i++){
+	document.write("<li>" + boardlist[i].output() + "</li>");
+}
+document.write("</ul>");
+</script>
+</body>
+</html>

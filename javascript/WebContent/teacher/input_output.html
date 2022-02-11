@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+alert("사이트는  크롬 최적화\n되었습니다.");
+
+var ret1 = prompt("아이디는 8자리로 제한 입력합니다.");
+/* 키보드입력-확인버튼 (입력내용리턴) /취소버튼(null)*/
+document.write(ret1 + "<br>");
+
+var ret2 = confirm("정말로 탈퇴하시겠습니까?");
+/* 2개버튼-확인버튼 (true) /취소버튼(false)*/
+document.write(ret2 + "<br>");
+
+//document.write((this instanceof Window) + "<br>");
+
+console.log(ret1 , ret2);
+
+var a=[ ];//배열객체
+var b = {
+		name:"김영철" , 
+		age:28 , 
+		title:"교육생",
+		f:function(){
+		 //메소드동작내용기능	
+		}
+		};//사용자객체
+
+console.dir(window);
+	
+		
+</script>
+</body>
+</html>

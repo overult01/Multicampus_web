@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+
+const sym1 = Symbol("monday");
+const sym2 = Symbol("monday");
+const sym3 = Symbol("tuesday");
+const sym4 = Symbol("wendessday");
+
+if(sym1 == sym2){
+	document.write("같다<br>");//false
+}
+
+var todate = sym3;
+
+switch(todate){
+case sym1:
+	document.write( sym1.description + "<br>");
+	break;
+case sym3:
+	document.write( sym3.description + "<br>");
+	break;	
+default:
+	document.write( sym4.description + "<br>");
+}
+
+
+
+
+</script>
+</body>
+</html>

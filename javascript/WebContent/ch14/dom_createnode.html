@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM: 노드 생성, 삽입, 삭제</title>
+</head>
+<body>
+
+<div id = "create"> 이미지가 들어가는 단계 구현하기 </div>
+
+<script type="text/javascript">
+window.onload = function() {
+	
+	// 노드 생성하기
+	
+//	1. img 태그 생성한다: document.createElement
+	var imgtag = document.createElement("img");
+
+//	2. img src속성 - 이미지파일 설정한다
+	imgtag.setAttribute("src", "http://localhost:8080/html/images/html5.jpg");
+		
+//	3. 기타 속성 설정한다.
+	imgtag.setAttribute("alt", "html5 로고 이미지");
+
+//	4. 웹 브라우저의 div 내부에서 보여야 한다. -> div태그 내에 img태그 넣기: appendChild
+	document.getElementById("create").appendChild(imgtag.cloneNode()); // 복사본 삽입
+	
+
+	// a 태그 추가하기 - href = "http://localhost:8080/html/images/html5.jpg"
+	// a 링크문자열 내용은 - 이미지 클릭
+	// 처음에 넣은 이미지 태그 다음에 삽입: appendChild()쓰면 순차적으로 넣어진다.
+	var atag = document.createElement("a");
+	atag.setAttribute("href", "http://localhost:8080/html/images/html5.jpg");
+	atag.innerHTML = "이미지 클릭"; // innerHTML은 변수다 
+//	atag.textContent = "이미지클릭";
+	document.getElementById("create").appendChild(atag);
+	
+	
+	// imgtag를 1번 더 추가
+	document.getElementById("create").appendChild(imgtag); // 원본삽입
+	
+	// 태그(노드) 삭제 (removeChild메서드)
+	document.getElementById("create").removeChild(imgtag); // 원본 삭제
+	
+}
+</script>
+
+</body>
+</html>

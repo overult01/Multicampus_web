@@ -17,11 +17,13 @@
 //위치 = 위도 + 경도 + 고도 
 
 var watchid; // 전역변수로.
+
 window.onload = function() {
 	
-	document.getElementById("start").onlclick = function() {		
+	document.getElementById("start").onclick = function() {		
 		// geolocation 위치 파악 메서드 호출 - 결과 - 위 + 경 + 고 출력 - map
-		var watchid = navigator.geolocation.watchPosition(success, fail);
+		watchid = navigator.geolocation.watchPosition(success , fail);
+		document.getElementById("position").innerHTML = "위치추적을 시작합니다";
 	}
 
 	document.getElementById("stop").onclick = function() {
@@ -32,17 +34,18 @@ window.onload = function() {
 
 }
 
-// 에러 상태 - 수정 필요 
 
 // https://maps.google.com?q=/@37.3649553,126.9218479,14z
-function success(pos) { // 위치 추적 성공했을 때 메서드. pos는 사용자 지정.
+function success(pos) { // 위치 추적 성공했을 때 메서드. pos는 임의로 지은 변수명.
 	var lat = pos.coords.latitude; // 위치
 	var lon = pos.coords.longitude; // 경도
-	document.getElementById("position").innerHTML =
-		"나의 위도 = " + lat + ", 나의 경도 = " + lon;
+	document.getElementById("position").innerHTML = 
+		"나의위도=" + lat + ", 나의 경도=" + lon;
 	
-	// 새창열기
-	// open('https://maps.google.com?q= + ' + lat + ',126.9218479,14z' + lon, "위치정보", "width=600, height=400, resizable=yes");
+	//새창열기
+	open("https://maps.google.com?q=" + lat + "," + lon, 
+			"위치정보",
+			"width=600, height=400, resizable=yes");
 }
 
 function fail(err) { // 사용자 허용 x, 위치 추적 장치 고장 등
@@ -53,6 +56,8 @@ function fail(err) { // 사용자 허용 x, 위치 추적 장치 고장 등
 
 
 </script>
+
+<div id="result">결과 나오는 부분</div>
 
 </body>
 </html>

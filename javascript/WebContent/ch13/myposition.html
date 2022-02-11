@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>navigator.geoloation 객체변수 사용</title>
+</head>
+<body>
+
+<input type = button value = "위치추적시작" id = "start">
+<input type = button value = "위치추적종료" id = "stop">
+
+<div id = "position">초기내용</div>
+
+<script type="text/javascript">
+//navigator.geolation : 객체변수. 브라우저 위치정보
+//컴퓨터는 네트워크망 ip = 주소 매핑테이블 / 스마트폰 - 기지국 gps
+//위치 = 위도 + 경도 + 고도 
+
+var watchid; // 전역변수로.
+window.onload = function() {
+	
+	document.getElementById("start").onlclick = function() {		
+		// geolocation 위치 파악 메서드 호출 - 결과 - 위 + 경 + 고 출력 - map
+		var watchid = navigator.geolocation.watchPosition(success, fail);
+	}
+
+	document.getElementById("stop").onclick = function() {
+		// geolocation 위치 파악 종료 메서드 호출 
+		navigator.geolocation.clearWatch(watchid);
+		document.getElementById("position").innerHTML = "위치추적을 중단합니다";
+	}
+
+}
+
+// 에러 상태 - 수정 필요 
+
+// https://maps.google.com?q=/@37.3649553,126.9218479,14z
+function success(pos) { // 위치 추적 성공했을 때 메서드. pos는 사용자 지정.
+	var lat = pos.coords.latitude; // 위치
+	var lon = pos.coords.longitude; // 경도
+	document.getElementById("position").innerHTML =
+		"나의 위도 = " + lat + ", 나의 경도 = " + lon;
+	
+	// 새창열기
+	// open('https://maps.google.com?q= + ' + lat + ',126.9218479,14z' + lon, "위치정보", "width=600, height=400, resizable=yes");
+}
+
+function fail(err) { // 사용자 허용 x, 위치 추적 장치 고장 등
+	document.getElementById("position").innerHTML =
+		"오류발생 = " + err.code + "번 " + err.message;
+	
+}
+
+
+</script>
+
+</body>
+</html>

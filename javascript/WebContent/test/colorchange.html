@@ -6,64 +6,28 @@
 </head>
 
 <script type="text/javascript">
+// this. : 현재의 onload이벤트를 발생시킨 	객체.
+
 window.onload = function() {
-	var button = document.getElementById("checkedcolor");
-	button.onclick = function() {
-		var canvas = document.getElementById("mycanvas");
-		// 캔버스 영역 랜더링 컨텍스트 = 붓
-		var ctx = canvas.getContext("2d");
-		
-	/* 	div.innerHTML = "초기상태"; */
-		if (document.getElementById("one").value = "red") {
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "red"; // 상자의 색 채우기 
-			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-			
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "red"; // 상자의 색 채우기 
-			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-		}
-		
-		else if (document.getElementById("two")) {
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "green"; // 상자의 색 채우기 
-			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-			
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "green"; // 상자의 색 채우기 
-			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-		}
-
-		else if (document.getElementById("three")) {
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "blue"; // 상자의 색 채우기 
-			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-			
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "blue"; // 상자의 색 채우기 
-			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-		}
-		
-		else {
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "silver"; // 상자의 색 채우기 
-			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(50, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-			
-			// 색상있는 사각형 그리기(기본 검정에서)
-			ctx.fillStyle = "silver"; // 상자의 색 채우기 
-			ctx.strokeRect(450, 200, 100, 100); // x, y, 가로, 세로
-			ctx.fillRect(450, 200, 100, 100); // 바탕색있는 사각형 만들기 	
-		}
-
-	}
 	
+	var radio_list = document.getElementsByName("col");
+	
+	for(r in radio_list) {
+		radio_list[r].onclick = function() {  // 클릭하면 실행할 함수를 등록만 해둔 상태.
+			
+			var mycolor = this.value; // 여기서 this는 사용자가 클릭한 radio 버튼을 의미.
+			var canvas = document.getElementById("mycanvas");
+			var ctx = canvas.getContext("2d"); // 캔버스 영역 랜더링 컨텍스트 = 붓. 2차원
+			
+			ctx.strokeStyle = mycolor;  
+			ctx.fillStyle = mycolor;
+			ctx.strokeRect(50, 200, 100, 100); // x, y, 가로, 세로. 바탕색 없는 사각형
+			ctx.fillRect(300, 200, 100, 100); // 바탕색있는 사각형 만들기 	
+			
+		}
+	
+	}
+		
 }
 </script>
 
@@ -74,9 +38,8 @@ window.onload = function() {
 	<input type=radio id=three value="blue" name="col">파랑색
 	<input type=radio id=four value="silver" name="col">회색
 
-	<input type = button value = "확인" id = "checkedcolor">
-<canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
-<div id="state">초기상태</div>
+	<canvas id="mycanvas" width="640" height=400 style="border:2px solid pink" ></canvas>
+	<div id="state">초기상태</div>
 </body>
 
 <!-- 

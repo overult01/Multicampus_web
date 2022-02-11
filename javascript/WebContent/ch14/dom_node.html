@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM구조 이해: DOM 트리의 노드 객체 가져오기</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	var body = document.getElementById("b"); // 가지고 온 객체는 DOM객체 타입.
+	// body 자식 태그 출력
+/* 	body_childs = body.childNodes; // 배열 
+	for( var i = 0; i < body_childs.length; i++) {
+		if (body_childs[i].nodeType == 1) { // nodeType == 1 :자식 태그들만 가져옴. // 2 : 속성 // 3 : 텍스트값  
+			document.write(body_childs[i].tagName + "<br>");
+		}
+	} */
+
+	// 노드 객체 가져오는 방법 
+	
+	// 방법1: id로 읽어오기 
+//	var one = document.getElementById("one"); // 링크문자열1 -> id가 여러개 있어도 오류는 안나지만, id를 가지고 있는 최초의 태그의 값만 가져온다.
+//	document.getElementById("output").innerHTML = one.innerHTML;
+	
+	// 방법2: tag이름으로 가져오기
+/* 	var a_list = document.getElementsByTagName("a"); // 배열 리턴 
+	for( var i = 0; i < a_list.length; i++) {
+		document.getElementById("output").innerHTML += 
+			a_list[i].innerHTML + "<br>";
+	}
+ */	
+	// 방법3: class이름으로 가져오기
+/*  	var choice_list = document.getElementsByClassName("choice"); // 배열 리턴 
+	for( var i = 0; i < choice_list.length; i++) {
+		document.getElementById("output").innerHTML += 
+			choice_list[i].innerHTML + "<br>";
+	}  */
+	
+	// 방법4: querySelector : 리턴은 딱 1개만. clas속성 값으로 가져오기. css문법
+	var h1_a = document.querySelector("h1 a"); // 링크문자열1 -> id가 여러개 있어도 오류는 안나지만, id를 가지고 있는 최초의 태그의 값만 가져온다.
+	document.getElementById("output").innerHTML = h1_a.innerHTML;
+
+	// 방법5: querySelectorAll : 배열로 모두 가져오기. clas속성 값으로.  a.choice 혹은 a#one 등 혼합지정도 된다.
+ 	var h1_a_list = document.querySelectorAll("h1 a"); // 배열 리턴 
+	for( var i = 0; i < h1_a_list.length; i++) {
+		document.getElementById("output").innerHTML += 
+			h1_a_list[i].innerHTML + "<br>";
+	} 
+}
+
+</script>
+</head>
+<body id ="b">
+
+<a id = "one" href = "b.html">링크문자열1</a>
+<a class="choice" id = "one" href  = "c.html">링크문자열2</a>
+<a href = "d.html">링크문자열3</a>
+
+<h1><a class="choice" href = "e.html">링크문자열4</a></h1>
+<h1><a class="choice" href = "f.html">링크문자열5</a></h1>
+
+<div id = "output"></div>
+
+</body>
+</html>

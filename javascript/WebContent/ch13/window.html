@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서로 다른 윈도우창(부모, 자식)간의 데이터 전달</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	
+	var child; // send쪽은 child가 누군지 모르므로 전역변수로 만들어준다. 두 함수에서 모두 쓰여야 하므로.
+	
+	document.getElementById("open").onclick = function(){
+		child = window.open("newpage.html", "", "width = 400, height = 300, top = 100, left = 100, resizable = no, location = no"); // 창의 크기, 크기, 위치 지정. 
+	// 부모 -> 자식일 땐 child.document
+	child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
+	child.document.getElementById("result").style.color = "red";
+	}	
+	// 새창열기 onclick
+
+	// 보낼 때
+	document.getElementById("send").onclick = function(){
+		// 부모 -> 자식일 땐 child.document
+		child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
+		child.document.getElementById("result").style.color = "red";
+	} // 부모에서 자식에 전달 onclick
+	
+	document.getElementById("close").onclick = function(){
+		// close(); -> 내 창을 닫아라
+		child.close();
+	}
+}
+</script>
+
+</head>
+<body>
+
+<input type = text id = "userid">
+<input type = button value = "새창열기" id = "open">
+<input type = button value = "부모에서전달" id = "send">
+<input type = button value = "새창닫기" id = "close">
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>노드 생성, 삽입: 배열로 한 번에 넣기</title>
+</head>
+<body>
+
+<div id = "image">초기상태</div>
+
+<script type="text/javascript">
+
+var path = "http://localhost:8080/html/images/";
+var imglist = ['americano.jpg', 'blackcoffee.gif', 'cafelatte.jpg', 'cappuccino.jpg', 'drinks.jpg']; // 배열 
+var div = document.getElementById("image")
+
+// 이미지 5개 div 추가
+for (var i = 0; i < imglist.length; i ++) {
+	var imgtag = document.createElement("img");
+	imgtag.setAttribute("src", path + imglist[i]);
+	imgtag.setAttribute("alt", "이미지" + i);
+	// 모든 이미지 같은 크기로 지정 
+	imgtag.setAttribute("width", "200");
+	imgtag.setAttribute("height", "200");
+	imgtag.setAttribute("style", "border: 2px solid red");
+	//div태그에 삽입
+	div.appendChild(imgtag);
+//	div.innerHTML += "img src=a.jpg width = 200 height = 200"; // 이것도 가능하긴 하나 appendChild 가 권장된다.
+}
+
+// 1초마다 첫 번째 이미지를 마지막으로 이동 
+function a() {
+	div.appendChild(div.firstChild);  // appendChild : 맨 뒤로 이동하는 효과 
+}
+setInterval(a, 1000); // 1초마다 이동
+</script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DOM구조 이해: DOM 트리의 노드 객체 가져오기</title>
+<title>DOM구조 이해: DOM 트리의 노드 객체 가져오기. 속성 추가, 삭제, 조회</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -36,16 +36,36 @@ window.onload = function() {
 	}  */
 	
 	// 방법4: querySelector : 리턴은 딱 1개만. clas속성 값으로 가져오기. css문법
-	var h1_a = document.querySelector("h1 a"); // 링크문자열1 -> id가 여러개 있어도 오류는 안나지만, id를 가지고 있는 최초의 태그의 값만 가져온다.
+/* 	var h1_a = document.querySelector("h1 a"); // 링크문자열1 -> id가 여러개 있어도 오류는 안나지만, id를 가지고 있는 최초의 태그의 값만 가져온다.
 	document.getElementById("output").innerHTML = h1_a.innerHTML;
-
+ */
 	// 방법5: querySelectorAll : 배열로 모두 가져오기. clas속성 값으로.  a.choice 혹은 a#one 등 혼합지정도 된다.
- 	var h1_a_list = document.querySelectorAll("h1 a"); // 배열 리턴 
+/*  	var h1_a_list = document.querySelectorAll("h1 a"); // 배열 리턴 
 	for( var i = 0; i < h1_a_list.length; i++) {
 		document.getElementById("output").innerHTML += 
 			h1_a_list[i].innerHTML + "<br>";
+	}  */
+	
+ 	var h1_a_list = document.querySelectorAll("h1 a"); // 배열 리턴 
+	for( var i = 0; i < h1_a_list.length; i++) {
+		// h1_a_list[i].href = "same" + i + ".html"; // href속성값을 same,,.html로 바꾸기 
+		h1_a_list[i].setAttribute("href", "same" + i + ".html"); // 위와 동일. 하지만 전체 경로를 써줘야(get도 마찬가지). 따라서 위처럼 변수처럼 쓰는게 훨씬 편하다. 
+		
+		h1_a_list[i].removeAttribute("href"); // href속성 없애기 
+		
+	// 모든 태그에 쓸 수 있는 속성 : od. c;ass. style, title
+ 		// css를 나타내는 변수가 DOM에 있으면 - 대신 - 뒤의 문자를 대문자로 바꿔준다.
+		// html에서 css속성을 줄 때: <a style = "background-color:pink">
+		h1_a_list[i].style.backgroundColor = "pink"; 
+		document.getElementById("output").innerHTML += 
+			// h1_a_list[i].innerHTML + "<br>";
+			h1_a_list[i].getAttribute("href"); // 위와 동일
+			
 	} 
+ 	
 }
+
+// innerHTML 프로퍼티 : 요소 안의 HTML 코드이다. 동적으로 태그의 텍스트를 바꾸기 위해 자주 사용한다. (textContent도 같은 기능을 한다. 하지만 이 태그는 html태그를 넣으면 인식하지 못하고 텍스트로 본다.)
 
 </script>
 </head>

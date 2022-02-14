@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>특정 위치로 스크롤하기</title>
+
+<style type="text/css">
+.select {
+	display: inline-block;
+	margin: 10px;
+	padding: 10px;
+	background-color: purple;
+	cursor: grab; 
+	
+}
+
+.box{
+	display: inline-block;
+	padding: 100px;
+	margin: 200px;
+	margin-left: 0;
+	background-color: yellow;
+}
+</style>
+
+</head>
+<body>
+	<span class="select">#sec1</span>
+    <span class="select">#sec2</span>
+	<span class="select">#sec3</span>  <!-- 누르면 sec3위치로 이동할 수 있도록. -->
+	<br>
+    <div class="box" id="sec1">#sec1</div>
+	<br>
+    <div class="box" id="sec2">#sec2</div>
+    <br>
+	<div class="box" id="sec3">#sec3</div>
+	
+<script type="text/javascript">
+
+var select = document.getElementsByClassName("select");
+for(var i = 0; i < select.length; i++) {
+/* 	select[i].onclick = function() { // 클릭했을 때 함수를 실행하라고 등록만 한 것. 따라서 i = 3으로 끝난 것.
+//		alert(i);
+		var text = this.innerHTML; 
+		var box = document.getElementsByClassName("box");
+		for(j in box) {
+			if (box[j].innerHTML == text) {
+				var rect = box[j].getBoundingClientRect(); // left, top, right, bottom, width, height 
+				// alert(rect.top + ":" + rect.height);
+				// window.scrollTo();
+				scrollTo(0, rect.top + window.pageYOffset); // 원하는 위치로 이동
+				// scrollTo(0, 0); // 페이지 상단 이동
+				// scrollTo(0, document.documentElement.scrollHeight); // 페이지 하단 이동
+			}
+		}
+	} */
+	
+	select[i].addEventListener('click', function(){}, false)
+}
+
+function autoscroll() {
+	function() { // 클릭했을 때 함수를 실행하라고 등록만 한 것. 따라서 i = 3으로 끝난 것.
+//		alert(i);
+		var text = this.innerHTML; 
+		var box = document.getElementsByClassName("box");
+		for(j in box) {
+			if (box[j].innerHTML == text) {
+				var rect = box[j].getBoundingClientRect(); // left, top, right, bottom, width, height 
+				// alert(rect.top + ":" + rect.height);
+				// window.scrollTo();
+				scrollTo(0, rect.top + window.pageYOffset); // 원하는 위치로 이동
+				// scrollTo(0, 0); // 페이지 상단 이동
+				// scrollTo(0, document.documentElement.scrollHeight); // 페이지 하단 이동
+			}
+		}
+	}
+}
+
+</script>
+		        
+</body>
+</html>

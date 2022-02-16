@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  html form 태그 이용  입력-->
+
+<form>
+	게시물 제목<input type = text id = "title"><br>
+	게시물 내용<input type = textarea id = "contents"><br>
+	게시물 작성자<input type = text id = "writer"><br>
+	<input type = button value = "객체로 생성" id = "boardbtn">
+	<input type = button value = "조회수 증가" id = "boardviewbtn">
+	
+</form>
+
+<div id="output">게시물 객체 정보 출력 </div>
+
+<script>
+//자바스크립트 class Board 타입 객체 생성
+class Board{
+	constructor(title, contents, writer){
+		this.title = title;
+		this.contents = contents;
+		this.writer = writer;
+		this.time = new Date();
+		this.viewcount = 0;
+	}
+	
+	toString(){
+		return this.title + "-" + this.contents + "-"
+		+ this.writer + "-" + this.time.toLocaleString() + "-" + this.viewcount + "<br>";
+	}
+	
+	//viewcount 1 증가 메소드 추가
+	cnt() {
+		return this.viewcount++;
+	}
+}
+
+window.onload = function() {	
+	var title = document.getElementById("title"); // dom 객체 타입
+	var contents = document.getElementById("contents");
+	var writer = document.getElementById("writer");
+	var boardbtn = document.getElementById("boardbtn");
+	var output = document.getElementById("output");
+	var boardviewbtn = document.getElementById("boardviewbtn");
+	
+	var board; // 여러함수에서 쓸 것은 외부에 선언. 
+
+	boardbtn.onclick = function() {	
+		var board = new Board(title.value, contents.value, writer.value);  // title만 넘기면 태그가 전달된다. 따라서 title.value와 같이 .value를 붙여야. 
+		board.cnt();
+		output.innerHTML += board.toString();
+		output.style.border = "2px solid #ee00aa";
+
+		}
+
+	boardviewbtn.onclick = function() {	
+		board.cnt();
+		output.innerHTML += board.toString();
+		output.style.border = "2px solid red";
+
+		}
+
+}
+
+</script>
+ 
+<!-- 게시물제목
+게시물내용
+게시물작성자
+3개 입력받고 '객체로 생성' 버튼 클릭하면 
+자바스크립트 class Board 타입 객체 생성하고
+조회수 1 증가시킨다
+그 결과를 id="output" 태그에 출력한다 
+ --> 
+</body>
+</html>

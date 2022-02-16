@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>특정 위치로 스크롤하기</title>
+<title>특정 위치로 스크롤하기, 이벤트 리스터 안의 this</title>
 
 <style type="text/css">
 .select {
@@ -39,43 +39,24 @@
 
 var select = document.getElementsByClassName("select");
 for(var i = 0; i < select.length; i++) {
-/* 	select[i].onclick = function() { // 클릭했을 때 함수를 실행하라고 등록만 한 것. 따라서 i = 3으로 끝난 것.
-//		alert(i);
-		var text = this.innerHTML; 
-		var box = document.getElementsByClassName("box");
-		for(j in box) {
-			if (box[j].innerHTML == text) {
-				var rect = box[j].getBoundingClientRect(); // left, top, right, bottom, width, height 
-				// alert(rect.top + ":" + rect.height);
-				// window.scrollTo();
-				scrollTo(0, rect.top + window.pageYOffset); // 원하는 위치로 이동
-				// scrollTo(0, 0); // 페이지 상단 이동
-				// scrollTo(0, document.documentElement.scrollHeight); // 페이지 하단 이동
-			}
-		}
-	} */
-	
-	select[i].addEventListener('click', function(){}, false)
+	select[i].addEventListner('click', autoscroll, false);	
 }
 
-function autoscroll() {
-	function() { // 클릭했을 때 함수를 실행하라고 등록만 한 것. 따라서 i = 3으로 끝난 것.
-//		alert(i);
-		var text = this.innerHTML; 
-		var box = document.getElementsByClassName("box");
-		for(j in box) {
-			if (box[j].innerHTML == text) {
-				var rect = box[j].getBoundingClientRect(); // left, top, right, bottom, width, height 
-				// alert(rect.top + ":" + rect.height);
-				// window.scrollTo();
-				scrollTo(0, rect.top + window.pageYOffset); // 원하는 위치로 이동
-				// scrollTo(0, 0); // 페이지 상단 이동
-				// scrollTo(0, document.documentElement.scrollHeight); // 페이지 하단 이동
-			}
+// 작동안된다 확인 필요. 
+function autoscroll(){
+	var text = this.innerHTML; // 함수가 호출되는 시점에서 this가 결정된다. 따라서 여기서는 select[i]가 this. 
+	var box = document.getElementsByClassName("box");
+	for(j in box){
+		if(box[j].innerHTML == text){
+			var rect = box[j].getBoundingClientRect();//top left height 
+			//alert(rect.top + ":" + rect.height);
+			scrollTo(0, rect.top + pageYOffset);
+			//scrollTo(0,0);//페이지 상단 이동
+			scrollTo(0, document.documentElement.scrollHeight);//페이지하단 이동
+			
 		}
 	}
-}
-
+}//onclick function end;
 </script>
 		        
 </body>

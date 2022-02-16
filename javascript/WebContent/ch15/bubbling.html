@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 전파: 이벤트 버블링</title>
+
+<style type="text/css">
+div {
+width: 500px;
+padding: 20px;
+background-color: blue;
+}
+a {
+width: 100px;
+background-color: green;
+font-size: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div id = "outer">
+	<a id = "inner" href = "test.html">이동</a>
+</div>
+
+<script type="text/javascript">
+
+
+var inner = document.getElementById("inner");
+var outer = document.getElementById("outer");
+inner.onclick = function(ev){
+	alert("1. 자식 태그에서 이벤트 발생");
+	ev.preventDefault(); // 디폴트 동작을 못하도록 하겠다. a태그는 기본 동작이 있으므로 href로 이동하지 못하게.
+	ev.stopPropagation(); // 부모 이벤트 전파방지
+}
+outer.onclick = function(){
+	alert("2. 부모 태그에서 이벤트 발생");
+}
+
+/* a태그는 동작 이벤트 핸들러 함수를 구현하지 않고도 클릭하면 href속성의 사이트로 이동하는 동작.
+a태그는 내부에 동작할 수 있는 기능 내장. 즉 내부적으로 a + 클릭함수() 인 것.
+따라서 a태그의 기본 내장 동작을 무효화 시켜야 한다. 링크 클릭해도 href 사이트로 이동하지 않도록.
+*/
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리기 : 키보드 입력값 처리</title>
+</head>
+<body>
+
+<input type = tel id = "phone">
+<div id = result>결과 표시</div>
+
+<script type="text/javascript">
+window.onload = function() {
+	document.getElementById("phone");
+	phone.onkeyup = function(ev) { // onkeyup: 키를 눌렀다가 떼어냈을 때  onekeydown:
+		// 이벤트 객체 정보 - ev
+		// 0 - 9까지 숫자 0(48) ~ 9(57)
+		if (ev.keyCode >= 48 && ev.keyCode <= 57 ) {
+			document.getElementById("result").innerHTML = ev.key + "적합";
+			document.getElementById("result").style.color = "green";
+		}
+		else {
+			document.getElementById("result").innerHTML = ev.key + "부적합";
+			document.getElementById("result").style.color = "red";
+		}
+
+	}
+}
+</script>
+
+<!-- 아이디 입력, 암호  -->
+<!-- <input type = email id ="phone">  -->
+<!-- email 타입은 가운데에 @가 있는지, url타입은 http://로 시작했는지 체크해준다. -->
+<!-- pattern 지정 유효성 검사는 submit시 발생 -->
+<!-- key를 1개 입력마다 유효성 검사를 해주고 싶을 때: keyup 이벤트 처리  -->
+<!-- <input type = tel id = "phone" pattern = "010[0-9]{3, 4}[0-9]{4}">  pattern 속성: 입력받는 패턴 지정 가능 
+<input type = submit value = "전송">
+ -->
+</body>
+</html>

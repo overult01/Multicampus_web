@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클래스, 상속</title>
+</head>
+<body>
+
+<script type="text/javascript">
+class Person{
+	constructor(name, age, gender) { // constructor정의 
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		
+		// 자바의 static제어자 붙인 것과 같은 효과
+		Person.personcount = Person.personcount+1; // 몇 명의 person 객체가 만들어졌는지 알 수 있다.
+	} 
+	
+	print() {
+		document.write("이름 = " + this.name + ", 나이 = " + this.age 
+				+ ", 성별 = " + this.gender + "<br>");
+	}
+	
+	static count() { // static 메서드는 static 키워드로 표현
+		return Person.personcount;
+	}
+	
+}
+
+class Circle{
+	constructor(center, radius) { //x: 100, y : 200
+		this.center = center;
+		this.radius = radius;
+	}
+	
+	area(){
+		return this.radius * this.radius * Math.PI;
+	}
+
+	toString() {
+		return "원은 중심점 x =" + this.center.x + ",y=" + this.center.y
+		+ "이고 반지름은 " + this.radius;
+	}
+}
+	
+class Ball extends Circle {
+	move(dx, dy) {
+		this.center.x = dx;
+		this.center.y = dy;
+	}
+	
+	// 오버라이딩
+	toString() {
+		// super예약어도 자바처럼 쓸 수 있다. 
+		var imsi = super.toString();
+/* 		"원은 중심점 x =" + this.center.x + ",y=" + this.center.y
+		+ "이고 반지름은 " + this.radius; */
+		return imsi.replace("원", "볼");
+	}
+
+}
+
+// 함수 실행시 전달 매개변수 갯수가 더 많으면 무시 
+// 함수 실행시 전달 매개변수 갯수가 더 적으면 undefined 
+
+Person.personcount = 0;
+var p1 = new Person("이철수", 30, "남");
+p1.print();
+document.write("객체의 수 = " + Person.count() + "<br>");
+var p2 = new Person("김영희", 20, "여");
+p2.print();
+
+////////////////////
+var c = new Circle({x: 100, y: 200}, 10);
+document.write("원의 정보 = " + c.toString() + "<br>");
+document.write("원의 면적 = " + c.area() + "<br>");
+
+var b = new Ball({x: 100, y: 200}, 10);
+b.move(10, 20); // 상속받은 메서드 그대로 사용.
+document.write("볼의 면적 = " + b.toString() + "<br>");
+
+</script>
+
+</body>
+</html>

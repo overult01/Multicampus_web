@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 실습</title>
+
+<script src="/WebContent/js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready( function(){
+	// 시각적인 효과.
+	$("h1:eq(0)").hide(3000);
+	// $("h1:eq(0)").show(3000);
+	$("h1:eq(0)").fadeIn(3000);
+	$("h1:eq(0)").fadeOut(3000);
+	$("h1:eq(0)").sliedDown(3000);
+	$("h1:eq(0)").sliedDown('slow'); // 0.6초로 서서히 아래로.
+	$("h1:eq(0)").sliedUp(3000);
+	$("h1:eq(2)").css(
+	{width: "500px",
+		backgroundColor:"green"}		
+	);
+
+
+} );
+</script>
+
+</head>
+<body>
+
+<h1>태그 보이기 감추기</h1>
+<h1>태그 페이드하기</h1>
+<h1>태그 애니메이션하기</h1>
+
+</body>
+</html>

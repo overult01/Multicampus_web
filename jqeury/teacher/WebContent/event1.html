@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<script>
+$(document).ready(function(){
+	$('h1').click(function(){
+		$("div").html($('h1').text() );
+	});//click end
+	
+	$('h1').on('click', function(){
+		$(this).css("background-color", "purple");
+	});//on end
+	
+	$("input:button").on('click', function(){
+		$('h1').off('click');
+	});//on end
+});
+</script> 
+<body>
+<h1> 클릭하세요 </h1>
+<input type=button value="이벤트멈춤"> 
+<div></div>
+<!-- <script>
+$('h1').click(function(){
+	$("div").html($('h1').text() );
+});
+</script -->
+</body>
+</html>

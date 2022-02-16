@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+$(document).ready(function() {
+	var cnt = 0;
+	
+	// after 메서드: 형제관계로 태그 생성. 
+	$('#btnclick').on('click', function() {
+		$('div').html( ++cnt + "번 클릭했습니다.");
+		$('input:last').after(
+				"<input type = button value = '새로생성한버튼' " + cnt + " id ='btnadd' >"
+				);
+	});
+	
+	// 
+	$('#btnstop').on('click', function() {
+	//	$('div').html( ++cnt + "번 클릭했습니다.");
+	});
+	
+	$('#btnnotice').on('click', function() {
+	//	$('div').html( ++cnt + "번 클릭했습니다.");
+	});
+});
+</script>
+  
+<title>제이쿼리로 태그 삽입하기: 부모자식, 형제</title>
+</head>
+<body>
+
+<input type=button value="클릭" id="btnclick">
+<input type=button value="중단" id="btnstop">
+<input type=button value="공지사항" id="btnnotice">
+
+<!-- div입장에서는 before위치에 넣기. -->
+<div></div>
+
+</body>
+</html>

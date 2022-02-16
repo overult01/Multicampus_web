@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>val메서드: value속성읽어오기</title>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+
+<script>
+//window.onload = function(){alert("실행완료");}
+
+$(document).ready( function(){
+	// $('#id').val("jquery기본값");
+	// alert($("#id").val()); // val(): 조회
+	// alert($("#gender1").val() + "," + $("#gender2").val()); // value 속성이 보여진다. 
+	// 현재 선택된 성별값을 가져와라
+	// alert($("input:radio:checked").val());
+	
+	// each
+/* 	$('input:radio').each(function() {
+		alert($("this").val());
+	});
+ */	
+	// input radio에서 첫 번째 선택된 상태 변경 = input radio checked = 'checked'속성 추가
+	// = attr()
+	// checked 상태 변경 
+	$("input:radio:first").attr("checked", "checked");
+	$('input:radio').each(function() {
+		alert($("this").attr("checked"));
+		// checked 속성 없다면 undefined, checked 속성 있다면 checked 
+	});
+
+/* 	if($input:radio).배열.attr("checked") == undefined) {
+		$("input:radio:last").removeAttr("checked");
+	}
+ */	
+	// $("input:radio:last").removeAttr("checked");
+
+} );
+</script>
+
+
+</head>
+<body>
+
+아이디입력<input type = text id = "id" value = "기본값"><br>
+암호입력<input type = password id = "pw"><br>
+<!-- radio는 name속성이 같은 것 중에 1개만 선택할 수 있다.  -->
+성별입력<input type = radio id = "gender1" name = "gender" value = "male">남자
+<input type = radio id = "gender2" name = "gender" value = "female" checked>여자
+</body>
+</html>

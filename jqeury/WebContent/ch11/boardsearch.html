@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습1</title>
+
+<script
+	src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous">
+</script>
+
+<script>
+$(document).ready( function(){
+	$('div').css("border", "2px solid red");
+	$('input:checkbox:first').on('click', function() {
+		// $('div').html($(this).val());
+		// 체키드 상태 아니면 checked로 변경 /체키드상태이면 체키드 해제.
+		if($(this).attr('checked')==undefined) { // 아직 checked아니면
+			$(this).attr('checked', 'checked') // checked
+		}
+		else{
+			$(this).removeAttr('checked'); // 체키드 상태 없애자
+		}
+		
+		// 나머지 제목 내용 작성자 적용
+		// 만약 모두에 checked되어 있으면 나머지 전체 checked로 바꿔주기.
+		if($(this).attr('checked') == 'checked') {
+			$("input:checkbox").attr('checked', 'checked');		
+		}
+		else {
+			$("input:checkbox").removeAttr('checked');
+		}
+	});
+} );
+</script>
+
+
+</head>
+<body>
+<h1> 검색 대상과 검색어를 입력하세요.</h1>
+<form action="" id="searchform" >
+	<input type=checkbox value="모두" />모두
+	<input type=checkbox value="제목" />제목
+	<input type=checkbox value="내용" />내용
+	<input type=checkbox value="작성자" />작성자
+	<input type=text value="검색어를 입력하세요" />		 
+	<input type=submit value="검색" />
+</form>
+
+<div></div>
+
+</body>
+</html>

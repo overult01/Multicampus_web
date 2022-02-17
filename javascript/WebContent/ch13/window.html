@@ -11,10 +11,10 @@ window.onload = function() {
 	
 	document.getElementById("open").onclick = function(){
 		child = window.open("newpage.html", "", "width = 400, height = 300, top = 100, left = 100, resizable = no, location = no"); // 창의 크기, 크기, 위치 지정. 
-	// 부모 -> 자식일 땐 child.document
-	child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
-	child.document.getElementById("result").style.color = "red";
-	}	
+		// 부모 -> 자식일 땐 child.document
+		child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
+		child.document.getElementById("result").style.color = "red";
+	};	
 	// 새창열기 onclick
 
 	// 보낼 때
@@ -22,12 +22,12 @@ window.onload = function() {
 		// 부모 -> 자식일 땐 child.document
 		child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
 		child.document.getElementById("result").style.color = "red";
-	} // 부모에서 자식에 전달 onclick
+	}; // 부모에서 자식에 전달 onclick
 	
 	document.getElementById("close").onclick = function(){
 		// close(); -> 내 창을 닫아라
 		child.close();
-	}
+	};
 }
 </script>
 

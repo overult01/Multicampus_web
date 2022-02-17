@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css함수</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready( function(){
+	// $('div').css("color", "blue");
+	// 색깔마다 다르게 지정한다. 
+	$('div').css("color", function(index) {
+		if(index==0) {return "red"};
+		else if(index==1) {return "green"};
+		else {return "blue"};
+	}
+
+});
+
+</script>
+
+</head>
+
+
+<body>
+
+script
+
+</body>
+</html>

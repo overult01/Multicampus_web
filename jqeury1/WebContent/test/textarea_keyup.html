@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 실습: key이벤트, click이벤트</title>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>    
+  
+<script>
+$(document).ready(function(){
+	var cnt = 10;
+	$('h1').html(cnt);	
+	// 입력할 때마다 몇 글자 남았는지 체킹해주는 예제
+	var func = $('#memo').on('keyup', function(){
+		$('h1').html(--cnt);
+		
+		// 남은 글자수 0이면 더 이상 입력 불가능
+		if(cnt < 1) {
+			// attr: 태그의 속성에 접근. attr(접근할 속성, 수정할 속성)
+			$(this).attr('readonly', 'readonly'); // this: 현재 이벤트가 발생하고 있는 곳.
+			cnt = 0;	
+			$('h1').html('');
+			$('h2').html("더이상 입력 불가능합니다.")
+			$('h2').css("color", "red");
+		};
+	});
+	
+	// $('#renew').on('click', function(){
+	$('input:button').on('click', function(){	
+		$('#memo').val('');
+		$('#memo').removeAttr('readonly');
+		$('#memo').focus();
+		cnt = 10;
+		$('h1').html(cnt);
+		$('h2').html("글자 입력 가능합니다");
+		$('h2').css("color", "black");
+	});
+});
+	
+	/*
+	1. keyevent - textarea 태그에 키 입력시마다 
+	h1, h2 태그에 x 글자 남았습니다 출력한다.
+	이 때 남은 글자수 0이면 textarea에 더이상 입력 불가능하도록 처리한다.
+	(readonly 속성 이용)
+	2. clickevent - 새로 입력 버튼 클릭시 
+       textarea 입력내용 삭제하고
+       textarea readonly 속성 삭제한다(removeAttr)*/
+</script>
+</head>
+<body>
+<h1 style="display:inline"> 10 </h1>
+<h2 style="display:inline"> 글자 입력 가능합니다 </h2>
+<textarea rows=5 cols=100 id = "memo">
+</textarea>
+<input type=button value="새로입력" id = "renew">
+</body>
+</html>

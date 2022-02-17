@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html, append메서드로 문자 조작하기</title>
+</head>
+<body>
+
+
+<script src="js/jquery-3.6.0.min.js"></script>
+
+<script>
+//window.onload = function(){alert("실행완료");}
+
+$(document).ready( function(){ //window.onload() 와 같은 부분이다.
+	alert($("#contents").html()); // html(): innerHTML역할.
+	$("#contents").html("<input type = password value = 123>") // setter역할. html(): 이전 내용 대체 
+	$("#contents").append("<input type = password value = 123>") // setter역할. append(): 이전 내용에 추가 
+	$("#contents").text("<input type = password value = 123>") // setter, getter역할. text(): 태그 인식을 못해서 소스코드 그대로 출력됨.
+	
+
+} );
+</script>
+
+
+<div id = "contents">
+	<input type = text value = "jquery"> <br>
+
+</div>
+</body>
+</html>

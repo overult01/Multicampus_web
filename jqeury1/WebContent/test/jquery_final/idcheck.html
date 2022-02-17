@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var idlist = ['java', 'html', 'script', 'jsp', 'servlet'];
+
+	$('input').on('click', function(){
+		self.close();
+	});
+
+	// input 입력값은 잘 받아온다.
+	var idinput = $( "#idinput", opener.document ).val();
+
+
+	for(i in idlist) {
+		if(idinput == idlist[i]) {
+		
+			$("#result").html(idinput + "는 사용 불가능합니다.");
+		}
+		else{
+			// 자바스크립트와 제이쿼리 혼용여부 확인.
+/* 			child.document.getElementById("result").innerHTML = 
+			idinput + "는 사용 가능합니다."; */
+			
+			
+		}
+	}//for문 
+
+	
+});
+
+</script>
+  
+<title>idcheck</title>
+</head>
+<body>
+
+<h1 id = "result">아이디 중복여부 확인</h1>
+<input type = button value = "창닫기">
+
+</body>
+</html>

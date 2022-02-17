@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+$(document).ready(function() {
+	var timer;	
+	var count = 0;
+	var img_ar = ['0.png', '1.png', '2.png', '3.png', '4.png',
+        '5.png', '6.png', '7.png', '8.png', '9.png',
+        '10.png', '11.png', '12.png', '13.png', '14.png'];
+	
+	$('#start').on('click', function() {
+		timer = setInterval(function(){
+			$('img').css("float", "right"); // 브라우저 사이즈와 상관없이 오른쪽으로 지정.
+			$('img').attr("src", "../jquery_images/" + img_ar[count % img_ar.length]);
+			count += 1;
+		}, 1000);
+		
+		
+	});
+	
+	// clearInterval(timer) : 위에서 설정한 setInterval 작업 없애기 
+	$('#stop').on('click', function() {	
+		clearInterver(timer);
+	});
+	
+});
+</script>
+  
+<title>이미지를 연속해서 동작하는 것처럼 보이기, 수정필요</title>
+</head>
+<body>
+
+<input type = button id = start value = "이미지동작시작" >
+<input type = button id = stop value = "이미지동작종료" >
+
+</body>
+</html>

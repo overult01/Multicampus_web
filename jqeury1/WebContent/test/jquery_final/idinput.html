@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+
+$(document).ready(function () {
+	
+	var child; // 중복확인
+	var idinput;
+	//중복확인
+	$("#idcheck").on('click', function(){
+		// 새창열기. child 변수로 받아줘야 한다.
+		child = window.open("idcheck.html", "중복확인", "width = 400, height = 400");
+		
+ 		// input 입력값은 잘 받아온다.
+		idinput = $("#idinput").val();
+		
+/* 		for(i in idlist) {
+			if(idinput == idlist[i]) {
+				// 자식에게 전달.
+				child.$("#result").html(idinput + "는 사용 불가능합니다.");
+			}
+			else{
+				// 자바스크립트와 제이쿼리 혼용여부 확인.
+				child.document.getElementById("result").innerHTML = 
+				idinput + "는 사용 가능합니다.";
+				
+				
+			} */
+	});
+	
+	$("#closecheck").on('click', function() {
+		child.close();
+	});	
+	
+}); // 제이쿼리 끝.
+ /* 참고용 
+			document.getElementById("send").onclick = function(){
+				// 부모 -> 자식일 땐 child.document
+				child.document.getElementById("result").innerHTML += "부모에서 추가하여 전송합니다.";
+				child.document.getElementById("result").style.color = "red";
+			}; // 부모에서 자식에 전달 onclick
+			 */		
+		
+	// 부모에서 창닫기. 안되는듯..?
+/* 	$("#closecheck").on('click', function(){
+		child.close();
+	}) */
+/* 	
+window.onload = function() {
+	document.getElementById("closecheck").onclick = function() {
+		child.close();
+	}
+} */
+			
+</script>
+
+  
+<title>제이쿼리 최종 실습 예제</title>
+</head>
+<body>
+
+<form action="success.jsp">
+	아이디 입력: <input type = text id = "idinput">
+	<input type = button value = "중복확인" id = "idcheck">
+	<input type = button value = "새창 닫기" id = "closecheck">
+	<br>
+	암호 입력: <input type = password>
+	<br>
+	이름 입력: <input type = text>
+	<br>
+	휴대폰 번호 입력: <input type = text>
+	<br>
+	<input type = submit value = "가입">
+</form>
+
+</body>
+</html>

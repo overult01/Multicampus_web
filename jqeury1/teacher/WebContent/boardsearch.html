@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js" ></script>
+<script>
+$(document).ready(function(){
+	$('div').css("border", "2px solid red");
+	$('input:checkbox:first').on('click', function(){
+		$('div').html($(this).val());
+		//아직 체키드 상태 아니면 checked 변경 / 체키드 상태이면  체키드상태 없애자
+		if($(this).attr('checked') == undefined){//아직 체키드 상태 아니면
+			$(this).attr('checked' , 'checked') // checked 변경 
+		}
+		else{// 체키드 상태이면
+			$(this).removeAttr('checked');//체키드상태 없애자
+		}
+		//나머지 제목 내용 작성자   적용
+		if($(this).attr('checked') == 'checked'){
+			$("input:checkbox").attr('checked', 'checked');
+			$("input:checkbox").prop('checked', true);
+		}
+		else{
+			$("input:checkbox").removeAttr('checked');
+			$("input:checkbox").prop('checked', false);
+		}
+		
+	});//click end
+});//ready end
+</script>
+</head>
+<body>
+<h1> 검색 대상과 검색어를 입력하세요.</h1>
+<form action="" id="searchform" >
+	<input type=checkbox value="모두" />모두
+	<input type=checkbox value="제목" />제목
+	<input type=checkbox value="내용" />내용
+	<input type=checkbox value="작성자" />작성자
+	<input type=text value="검색어를 입력하세요" />		 
+	<input type=submit value="검색" />
+</form>
+<div></div>
+</body>
+</html>

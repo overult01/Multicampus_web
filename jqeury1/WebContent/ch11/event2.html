@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+/* 	$('#box').css('height', '100px');
+	$('#box').css('width', '100px');
+	$('#box').css('background-color', 'orange'); */
+	
+	// 위와 같다.
+ 	$('#box').css({
+		height : "100px",
+		width: "100px",
+		backgroundColor: "orange"
+	});
+	
+	// 1개 태그에 여러개 이벤트 처리 1
+	// div 영역에 클릭하면 배경색 변경 
+/* 	$('#box').on('click', function(){$(this).css("background-color", "red")});
+	// div 영역에 마우스가 오면 배경색 변경 
+	$('#box').on('mouseenter', function(){$(this).css("background-color", "green")});
+	// div 영역에 마우스가 빠져나가면 배경색 변경 
+	$('#box').on('mouseleave', function(){$(this).css("background-color", "orange")});
+ */
+	
+	// 1개 태그에 여러개 이벤트 처리 2 : 함수의 체이닝. 함수를 연결해서 사용
+	// div 영역에 클릭하면 배경색 변경 
+/* 	$('#box')
+	.on('click', function(){$(this).css("background-color", "red")})
+	.on('mouseenter', function(){$(this).css("background-color", "green")})
+	.on('mouseleave', function(){$(this).css("background-color", "orange")}
+	); */
+
+	
+	// 1개 태그에 여러개 이벤트 처리 3 : 객체형태로 on함수를 만드는 방식.
+	// div 영역에 클릭하면 배경색 변경 
+	$('#box').on({
+		click: function(){$(this).css("background-color", "red")},
+		mouseenter: function(){$(this).css("background-color", "green")},
+		mouseleave: function(){$(this).css("background-color", "orange")}
+	});// on	
+});
+</script>
+
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id = "box"></div>
+
+</body>
+</html>

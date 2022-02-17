@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>input양식 메서드: val메서드, html메서드, 수정필요</title>
+<!-- val: input태그는 val메서드로만 접근할 수 있다. 왜냐면 val는 value를 가져오는 메서드기 때문이다.
+html: value속성이 따로 없는 것들은 html메서드, val메서드, text메서드 모두로 가져올 수 있다.  -->
+<script src="js/jquery-3.6.0.min.js"></script>
+
+<script>
+//window.onload = function(){alert("실행완료");}
+
+$(document).ready( function(){
+	// $('#id').val("jquery기본값");
+	// alert($("#id").val()); // val(): 조회
+	// alert($("#gender1").val() + "," + $("#gender2").val()); // value 속성이 보여진다. 
+	// 현재 선택된 성별값을 가져와라
+	// alert($("input:radio:checked").val());
+	
+	// each
+/* 	$('input:radio').each(function() {
+		alert($("this").val());
+	});
+ */	
+	// input radio에서 첫 번째 선택된 상태 변경 = input radio checked = 'checked'속성 추가
+	// = attr()
+	// checked 상태 변경 
+//	$("input:radio:first").attr("checked", "checked");
+	$('input:radio').each(function() {
+		alert($("this").attr("checked"));
+		// checked 속성 없다면 undefined, checked 속성 있다면 checked 
+	});
+
+/* 	if($input:radio).배열.attr("checked") == undefined) {
+		$("input:radio:last").removeAttr("checked");
+	}
+ */	
+	// $("input:radio:last").removeAttr("checked");
+
+// prob함수(attr함수와 유사): 둘 다 속성에 접근하는 것은 똑같다. 
+// 하지만 checked속성에 접근하면 attr은 checked, undefined // prob은 true, false 리턴.
+	$('input:radio').each(function() {
+		alert($("this").prop("checked"));
+		// checked 속성 없다면 false, checked 속성 있다면 true 
+	});
+
+} );
+
+// textarea 입력값
+alert($("#memo")).val(); // val함수는 input태그에 대한 접근. 따라서 input, radio 등의 태그에 접근.
+alert($("#memo")).html(); // textarea는 태그로 가져올 수가 없어서 html메서드로 가져온다.  
+
+// 반선택값
+alert($("#ban option:selected")).val();
+alert($("#ban option:selected")).html();
+
+</script>
+
+
+</head>
+<body>
+
+아이디입력<input type = text id = "id" value = "기본값"><br>
+암호입력<input type = password id = "pw"><br>
+<!-- radio는 name속성이 같은 것 중에 1개만 선택할 수 있다.  -->
+성별입력<input type = radio id = "gender1" name = "gender" value = "male">남자
+<input type = radio id = "gender2" name = "gender" value = "female" checked>여자
+
+<br>
+<!-- textarea는 긴 문자열을 담아야 하므로 몇 줄 입력할지 정해야. -->
+<textarea rows="" cols="" id = "memo">여기에 메모하시면 됩니다.여기는 val함수, html메서드, text메서드로 읽어올 수 있다.</textarea>
+<br>
+
+<select id = "ban">
+	<option>1반</option>
+	<option>2반</option>
+	<option selected = "selected">3반</option> <!-- 기본선택: radio에서는 checked, select option에서는 selected  -->
+	<option>4반</option>
+	<option>5반</option>
+
+</select>
+
+
+</body>
+</html>

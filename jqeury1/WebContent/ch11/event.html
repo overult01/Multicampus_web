@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+
+
+<script>
+$(document).ready( function(){
+	$('h1').click(function(){
+		$('div').html($('h1').text());  // innerHtml은 DOM구조로 읽어왔을 때.
+	})
+	
+	$('h1').on('click', function(){
+		$('h1').css("background-color", "purple");
+	});
+	
+	// 요새 이벤트 처리는 이 두가지로 통일해서 사용하는 추세.
+	// on함수(이벤트 연결), off함수(이벤트 제거)
+	$("input:button").on('click', function(){
+		$('h1').off('click'); // off함수: 모든 이벤트 제거
+	});
+});
+</script>
+
+</head>
+<body>
+<h1>클릭하세요</h1>
+
+<input type = button value = "이벤트 멈춤" >
+
+<div></div>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+//window.onload //load 이벤트 발생 
+$(document).ready(function(){//문서 ready 이벤트 발생
+	$("h1:eq(0)").hide();
+	//$("h1:eq(0)").show();
+	//$("h1:eq(0)").fadeIn(3000);
+	//$("h1:eq(0)").fadeOut(3000);	
+	$("h1:eq(0)").slideDown('slow');//0.6초
+	$("h1:eq(0)").slideUp(3000);
+	
+	
+	$("h1:eq(2)").css(
+			{
+			width: "500px",
+			backgroundColor:"green"
+			}
+			)
+			.delay(2000)
+			.animate(
+					{width: "300px",
+					opacity:0.5
+					} , 500	);//animate
+					
+});//ready end
+</script>
+</head>
+<body>
+<h1> 태그 보이기 감추기 </h1>
+<h1> 태그 페이드하기 </h1>
+<h1> 태그 애니메이션하기 </h1>
+
+
+</body>
+</html>

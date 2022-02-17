@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready( function(){ 
+	//$("#id").val("jquery기본값");
+	//alert($("#id").val());
+	//alert($("#gender1").val()  + "," + $("#gender2").val() )  ;
+	//현재 선택된 성별값 
+	//alert($("input:radio:checked").val());
+	
+	//each
+	//$("input:radio").each(function(){
+	//	alert($(this).val());
+	//});
+	//1개만 존재
+	//alert($("input:radio").val());
+
+	//input type=radio / checkbox
+	//input radio 첫번째 선택된 상태 변경 = input radio checked='checked' 속성 추가
+	// = attr()
+	
+	$("input:radio:first").attr("checked", "checked");//setter
+	$("input:radio").each(function(i){
+		alert(i + " 번째 radio = " + $(this).attr("checked"));
+		//checked속성 없다면 undefined, checked속성 있다면 checked
+	});
+	$("input:radio:first").removeAttr("checked");
+
+
+	/*$("input:radio:first").prop("checked", true);//setter
+	$("input:radio:first").prop("checked", false);
+	$("input:radio").each(function(i){
+	alert(i + " 번째 radio = " + $(this).prop("checked"));
+	//checked속성 없다면 false, checked속성 있다면 true
+	});*/
+
+
+//textarea 입력값
+//alert($("#memo").val());//<input value=""
+//alert($("#memo").html());
+
+//반 선택값
+alert($("#ban option:selected").val());
+alert($("#ban option:selected").html());
+} );
+</script>
+</head>
+<body>
+아이디입력<input type=text id="id" ><br>
+암호입력<input type=password id="pw"><br>
+성별입력<input type=radio id="gender1" value="male" name="gender" > 남자 
+<input type=radio id="gender2" value="female" name="gender" > 여자 
+<textarea id="memo" cols="50" rows="5">
+ 여기에 메모하시면 됩니다  html text
+</textarea>
+<br>
+<select id="ban">
+	<option> 1반 </option>
+	<option> 2반 </option>
+	<option selected="selected"> 3반 </option>
+	<option> 4반 </option>
+	<option> 5반 </option>			
+</select>
+
+
+</body>
+</html>

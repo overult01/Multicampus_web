@@ -33,27 +33,28 @@ html, css, JS관련 실습 내용들입니다.
 
 
 ## 2️⃣자바스크립트 개요(javascript폴더)
+- [자바와 자바스크립트 비교](https://structuring.tistory.com/177?category=987699)
 - ch3: 변수와 값
   + 변수
   + [데이터 타입](https://structuring.tistory.com/176?category=987699)
 - ch4: 객체, 배열, 함수
   + 객체 기초1: 객체 리터럴
   + 객체 기초2: 생성자
-  + 객체 기초3ㅣ 내장 객체
+  + 객체 기초3: 내장 객체
   + 함수 기초
   + 배열 기초
 - ch5: 표현식, 연산자
-  + 명시적 타입 변환
-- ch6: 웹 브라우저에서 입출력
-+ 대화상자: alert, prompt, confirm
-+ 출력: console, document.write
+  + [형변환(묵시적,명시적)](https://structuring.tistory.com/182?category=987699)
+- ch6: [웹 브라우저에서 입출력](https://structuring.tistory.com/179?category=987699)
+  + 대화상자: alert, prompt, confirm
+  + 출력: console, document.write
 - ch7: 제어 구문
 - ch8: 함수
-+ 함수 정의, 중첩 함수
-+ 함수 호출, 즉시 실행 함수
-+ 함수의 인수: 인수의 생략, 가변길이 인수 목록(Arguments객체)
-+ 콜백 함수: 콜백 함수, 타이머
-+ ECMAScript6 추가 함수: 화살표 함수
+  + 함수 정의, 중첩 함수
+  + 함수 호출, 즉시 실행 함수
+  + 함수의 인수: 인수의 생략, 가변길이 인수 목록(Arguments객체)
+  + 콜백 함수: 콜백 함수, 타이머
+  + ECMAScript6 추가 함수: 화살표 함수
 - ch9: 객체
   + 객체 생성
   + 프로토타입 상속
@@ -63,16 +64,14 @@ html, css, JS관련 실습 내용들입니다.
 - ch11: 버그, 오류에 대처
 - ch12: 정규 표현식
 - ch13: 웹 브라우저의 객체
+  + [Window객체, Document객체](https://structuring.tistory.com/180?category=987699)
 - ch14: 문서 제어
+  + [DOM트리](https://structuring.tistory.com/181?category=987699)
 - ch15: 이벤트 처리
-- ch16: HTTP제어(Ajax)
-- ch17: MVC모델에 기반을 둔 프로그램 설계
-- ch18: 생성자와 클래스 구문
-- ch19: API 활용
 
 ## 3️⃣제이쿼리 개요(jquery폴더)
 - Ch11: jQuery 라이브러리
-  + jQuery 라이브러리 설정
+  + [jQuery 라이브러리 설정](https://structuring.tistory.com/178?category=987699)
   + 문서 객체 선택, 조작
   + 속성 조작
   + 스타일 조작
